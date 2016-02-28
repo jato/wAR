@@ -3,26 +3,3 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-@import url(http://fonts.googleapis.com/css?family=Raleway+Dots);
-@import url(http://fonts.googleapis.com/css?family=Raleway);
-@import url(http://fonts.googleapis.com/css?family=Advent+Pro:400,200,700);
-
-[class*="entypo-"]:before {
-  font-family: 'entypo', sans-serif;
-}
-/*Note on font import: won't render properly if linked through https protocol*/
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
- @font-face {
-  font-family: 'entypo';
-  src: url('path to entypo.svg#entypo') format('svg');
-  }
-}
-
-html, body {
-  margin: 0;
-  margin-right: 22px;
-  width: 100%;
-  background-color: #131f43;
-}
-
