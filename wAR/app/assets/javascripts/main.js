@@ -51,14 +51,14 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
 					});
 
 		// Fix: Placeholder polyfill.
-			$('form').placeholder();
+			// $('form').placeholder();
 
 		// Prioritize "important" elements on medium.
 			skel.on('+medium -medium', function() {
-				$.prioritize(
-					'.important\\28 medium\\29',
-					skel.breakpoint('medium').active
-				);
+				// $.prioritize(
+				// 	'.important\\28 medium\\29',
+				// 	skel.breakpoint('medium').active
+				// );
 			});
 
 		// Scrolly.
@@ -69,19 +69,19 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
 				});
 
 		// Menu.
-			$('#menu')
-				.append('<a href="#menu" class="close"></a>')
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right',
-					target: $body,
-					visibleClass: 'is-menu-visible'
-				});
+			// $('#menu')
+			// 	.append('<a href="#menu" class="close"></a>')
+			// 	.appendTo($body)
+			// 	.panel({
+			// 		delay: 500,
+			// 		hideOnClick: true,
+			// 		hideOnSwipe: true,
+			// 		resetScroll: true,
+			// 		resetForms: true,
+			// 		side: 'right',
+			// 		target: $body,
+			// 		visibleClass: 'is-menu-visible'
+			// 	});
 
 		// Header.
 			if (skel.vars.IEVersion < 9)
@@ -107,9 +107,9 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
 
 $(document).ready(function(){
 
-   
+
   $('.button special').click(function(e) {
-    e.preventDefault(); 
+    e.preventDefault();
 
     $('#logic-activate').fadeToggle(900, 'linear');
 
