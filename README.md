@@ -9,7 +9,23 @@ By [Jose Juan Isaac Taveras](https://github.com/josejuanisaac), [Nathan Micic](h
 
 ### Game of War
 
-`TBA`
+More game information can be found on the [Bicycle Cards Website](http://www.bicyclecards.com/how-to-play/war/)
+
+**TO WIN**
+Be the first player to win all the cards
+
+**SET UP**
+There are two players. Each player gets half the deck, faced down. Players are not allowed to look at their cards during game player.
+
+**GAME Play**
+On each turn, each player lays down a card faced up at the same time. The player with the higher card takes both cards and places it on the bottom of their deck.
+
+If the card value is the same, the game play enters War. Each player places three cards faced down, shouting "I declare war!", then opens the next card. The higher card wins. If the cards are still the same value, game play continues with War.
+
+**Card Values**
+Ace is high. 2 is low. Goes in the following order:
+
+*2 3 4 5 6 7 8 9 J Q K A*
 
 ### AR Technology
 
