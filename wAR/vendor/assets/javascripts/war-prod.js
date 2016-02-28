@@ -1769,7 +1769,7 @@ ready = function() {
 			return this;
 
 		},
-		
+
 		subScalar: function ( s ) {
 
 			this.x -= s;
@@ -2410,7 +2410,7 @@ ready = function() {
 		},
 
 		setFromMatrixColumn: function ( index, matrix ) {
-			
+
 			var offset = index * 4;
 
 			var me = matrix.elements;
@@ -4591,17 +4591,17 @@ ready = function() {
 		},
 
 		extractBasis: function ( xAxis, yAxis, zAxis ) {
-	 
+
 			var te = this.elements;
-	 
+
 			xAxis.set( te[ 0 ], te[ 1 ], te[ 2 ] );
 			yAxis.set( te[ 4 ], te[ 5 ], te[ 6 ] );
 			zAxis.set( te[ 8 ], te[ 9 ], te[ 10 ] );
-	 
+
 			return this;
-			
+
 		},
-	 
+
 		makeBasis: function ( xAxis, yAxis, zAxis ) {
 
 			this.set(
@@ -5752,7 +5752,7 @@ ready = function() {
 				// in order to always return an intersect point that is in front of the ray.
 				if ( t0 < 0 ) return this.at( t1, optionalTarget );
 
-				// else t0 is in front of the ray, so return the first collision point scaled by t0 
+				// else t0 is in front of the ray, so return the first collision point scaled by t0
 				return this.at( t0, optionalTarget );
 
 			}
@@ -10901,7 +10901,7 @@ ready = function() {
 		THREE.Object3D.call( this );
 
 		this.type = 'Light';
-		
+
 		this.color = new THREE.Color( color );
 
 	};
@@ -11841,7 +11841,7 @@ ready = function() {
 				THREE.Cache.add( url, this );
 
 				if ( onLoad ) onLoad( this );
-				
+
 				scope.manager.itemEnd( url );
 
 			}, false );
@@ -14355,7 +14355,7 @@ ready = function() {
 		this.uuid = THREE.Math.generateUUID();
 
 		this.type = 'MeshFaceMaterial';
-		
+
 		this.materials = materials instanceof Array ? materials : [];
 
 	};
@@ -14815,7 +14815,7 @@ ready = function() {
 	THREE.CubeTexture = function ( images, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy ) {
 
 		mapping = mapping !== undefined ? mapping : THREE.CubeReflectionMapping;
-		
+
 		THREE.Texture.call( this, images, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy );
 
 		this.images = images;
@@ -15328,7 +15328,7 @@ ready = function() {
 		THREE.Object3D.call( this );
 
 		this.type = 'Mesh';
-		
+
 		this.geometry = geometry !== undefined ? geometry : new THREE.Geometry();
 		this.material = material !== undefined ? material : new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } );
 
@@ -15820,7 +15820,7 @@ ready = function() {
 	THREE.Skeleton.prototype.update = ( function () {
 
 		var offsetMatrix = new THREE.Matrix4();
-		
+
 		return function () {
 
 			// flatten bone matrices to array
@@ -15841,7 +15841,7 @@ ready = function() {
 				this.boneTexture.needsUpdate = true;
 
 			}
-			
+
 		};
 
 	} )();
@@ -24689,7 +24689,7 @@ ready = function() {
 
 		return function ( gl, type, string ) {
 
-			var shader = gl.createShader( type ); 
+			var shader = gl.createShader( type );
 
 			gl.shaderSource( shader, string );
 			gl.compileShader( shader );
@@ -26915,7 +26915,7 @@ ready = function() {
 
 	THREE.FontUtils.generateShapes = function ( text, parameters ) {
 
-		// Parameters 
+		// Parameters
 
 		parameters = parameters || {};
 
@@ -27693,7 +27693,7 @@ ready = function() {
 
 		this.curves = [];
 		this.bends = [];
-		
+
 		this.autoClose = false; // Automatically closes the path
 	};
 
@@ -27718,11 +27718,11 @@ ready = function() {
 		// Add a line curve if start and end of lines are not connected
 		var startPoint = this.curves[0].getPoint(0);
 		var endPoint = this.curves[this.curves.length - 1].getPoint(1);
-		
+
 		if (! startPoint.equals(endPoint)) {
 			this.curves.push( new THREE.LineCurve(endPoint, startPoint) );
 		}
-		
+
 	};
 
 	// To get accurate point with reference to
@@ -28070,7 +28070,7 @@ ready = function() {
 			}
 
 		};
-		
+
 	}() );
 
 	// File:src/extras/core/Path.js
@@ -28453,7 +28453,7 @@ ready = function() {
 				//console.log(points);
 
 				break;
-				
+
 			case THREE.PathActions.ELLIPSE:
 
 				var aX = args[ 0 ], aY = args[ 1 ],
@@ -28656,7 +28656,7 @@ ready = function() {
 		holesFirst = isCCW ? ! holesFirst : holesFirst;
 
 		// console.log("Holes first", holesFirst);
-		
+
 		var betterShapeHoles = [];
 		var newShapes = [];
 		var newShapeHoles = [];
@@ -28682,7 +28682,7 @@ ready = function() {
 				newShapes[mainIdx] = { s: new THREE.Shape(), p: tmpPoints };
 				newShapes[mainIdx].s.actions = tmpPath.actions;
 				newShapes[mainIdx].s.curves = tmpPath.curves;
-				
+
 				if ( holesFirst )	mainIdx ++;
 				newShapeHoles[mainIdx] = [];
 
@@ -29538,7 +29538,7 @@ ready = function() {
 			angle = this.aStartAngle + t * deltaAngle;
 
 		}
-		
+
 		var vector = new THREE.Vector2();
 
 		vector.x = this.aX + this.xRadius * Math.cos( angle );
@@ -31247,14 +31247,14 @@ ready = function() {
 		function getBevelVec( inPt, inPrev, inNext ) {
 
 			var EPSILON = 0.0000000001;
-			
+
 			// computes for inPt the corresponding point inPt' on a new contour
 			//   shiftet by 1 unit (length of normalized vector) to the left
 			// if we walk along contour clockwise, this new contour is outside the old one
 			//
 			// inPt' is the intersection of the two lines parallel to the two
 			//  adjacent edges of inPt at a distance of 1 unit on the left side.
-			
+
 			var v_trans_x, v_trans_y, shrink_by = 1;		// resulting translation vector for inPt
 
 			// good reading for geometry algorithms (here: line-line intersection)
@@ -31262,38 +31262,38 @@ ready = function() {
 
 			var v_prev_x = inPt.x - inPrev.x, v_prev_y = inPt.y - inPrev.y;
 			var v_next_x = inNext.x - inPt.x, v_next_y = inNext.y - inPt.y;
-			
+
 			var v_prev_lensq = ( v_prev_x * v_prev_x + v_prev_y * v_prev_y );
-			
+
 			// check for colinear edges
 			var colinear0 = ( v_prev_x * v_next_y - v_prev_y * v_next_x );
-			
+
 			if ( Math.abs( colinear0 ) > EPSILON ) {		// not colinear
-				
+
 				// length of vectors for normalizing
-		
+
 				var v_prev_len = Math.sqrt( v_prev_lensq );
 				var v_next_len = Math.sqrt( v_next_x * v_next_x + v_next_y * v_next_y );
-				
+
 				// shift adjacent points by unit vectors to the left
-		
+
 				var ptPrevShift_x = ( inPrev.x - v_prev_y / v_prev_len );
 				var ptPrevShift_y = ( inPrev.y + v_prev_x / v_prev_len );
-				
+
 				var ptNextShift_x = ( inNext.x - v_next_y / v_next_len );
 				var ptNextShift_y = ( inNext.y + v_next_x / v_next_len );
-		
+
 				// scaling factor for v_prev to intersection point
-		
+
 				var sf = (  ( ptNextShift_x - ptPrevShift_x ) * v_next_y -
 							( ptNextShift_y - ptPrevShift_y ) * v_next_x    ) /
 							( v_prev_x * v_next_y - v_prev_y * v_next_x );
-		
+
 				// vector from inPt to intersection point
-		
+
 				v_trans_x = ( ptPrevShift_x + v_prev_x * sf - inPt.x );
 				v_trans_y = ( ptPrevShift_y + v_prev_y * sf - inPt.y );
-		
+
 				// Don't normalize!, otherwise sharp corners become ugly
 				//  but prevent crazy spikes
 				var v_trans_lensq = ( v_trans_x * v_trans_x + v_trans_y * v_trans_y )
@@ -31302,7 +31302,7 @@ ready = function() {
 				} else {
 					shrink_by = Math.sqrt( v_trans_lensq / 2 );
 				}
-				
+
 			} else {		// handle special case of colinear edges
 
 				var direction_eq = false;		// assumes: opposite
@@ -31866,7 +31866,7 @@ ready = function() {
 	 * @author bhouston / http://exocortex.com
 	 */
 
-	// points - to create a closed torus, one must use a set of points 
+	// points - to create a closed torus, one must use a set of points
 	//    like so: [ a, b, c, d, a ], see first is the same as last.
 	// segments - the number of circumference segments to create
 	// phiStart - the starting radian
@@ -32200,7 +32200,7 @@ ready = function() {
 			phiStart: phiStart,
 			phiLength: phiLength,
 			thetaStart: thetaStart,
-			thetaLength: thetaLength 
+			thetaLength: thetaLength
 		};
 
 		radius = radius || 50;
@@ -32474,7 +32474,7 @@ ready = function() {
 		p = p || 2;
 		q = q || 3;
 		heightScale = heightScale || 1;
-		
+
 		var grid = new Array( radialSegments );
 		var tang = new THREE.Vector3();
 		var n = new THREE.Vector3();
@@ -33736,7 +33736,7 @@ ready = function() {
 	THREE.CameraHelper.prototype.update = function () {
 
 		var geometry, pointMap;
-		
+
 		var vector = new THREE.Vector3();
 		var camera = new THREE.Camera();
 
@@ -35141,17 +35141,17 @@ ready = function() {
 	a+"px",m=b,r=0);return b},update:function(){l=this.end()}}};
 	/*
 	Copyright (c) 2012 Juan Mellado
-	
+
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
 	in the Software without restriction, including without limitation the rights
 	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 	copies of the Software, and to permit persons to whom the Software is
 	furnished to do so, subject to the following conditions:
-	
+
 	The above copyright notice and this permission notice shall be included in
 	all copies or substantial portions of the Software.
-	
+
 	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -35160,19 +35160,19 @@ ready = function() {
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE.
 	*/
-	
+
 	/*
 	References:
 	- "Numerical Recipes in C - Second Edition"
 		http://www.nr.com/
 	*/
-	
+
 	var SVD = SVD || {};
-	
+
 	SVD.svdcmp = function(a, m, n, w, v){
 		var flag, i, its, j, jj, k, l, nm,
 				anorm = 0.0, c, f, g = 0.0, h, s, scale = 0.0, x, y, z, rv1 = [];
-				
+
 		//Householder reduction to bidiagonal form
 		for (i = 0; i < n; ++ i){
 			l = i + 1;
@@ -35238,7 +35238,7 @@ ready = function() {
 			}
 			anorm = Math.max(anorm, ( Math.abs( w[i] ) + Math.abs( rv1[i] ) ) );
 		}
-	
+
 		//Acumulation of right-hand transformation
 		for (i = n - 1; i >= 0; -- i){
 			if (i < n - 1){
@@ -35263,7 +35263,7 @@ ready = function() {
 			g = rv1[i];
 			l = i;
 		}
-	
+
 		//Acumulation of left-hand transformation
 		for (i = Math.min(n, m) - 1; i >= 0; -- i){
 			l = i + 1;
@@ -35292,7 +35292,7 @@ ready = function() {
 			}
 			++ a[i][i];
 		}
-	
+
 		//Diagonalization of the bidiagonal form
 		for (k = n - 1; k >= 0; -- k){
 			for (its = 1; its <= 30; ++ its){
@@ -35329,7 +35329,7 @@ ready = function() {
 						}
 					}
 				}
-	
+
 				//Convergence
 				z = w[k];
 				if (l === k){
@@ -35341,11 +35341,11 @@ ready = function() {
 					}
 					break;
 				}
-	
+
 				if (30 === its){
 					return false;
 				}
-	
+
 				//Shift from bottom 2-by-2 minor
 				x = w[l];
 				nm = k - 1;
@@ -35355,7 +35355,7 @@ ready = function() {
 				f = ( (y - z) * (y + z) + (g - h) * (g + h) ) / (2.0 * h * y);
 				g = SVD.pythag( f, 1.0 );
 				f = ( (x - z) * (x + z) + h * ( (y / (f + SVD.sign(g, f) ) ) - h) ) / x;
-	
+
 				//Next QR transformation
 				c = s = 1.0;
 				for (j = l; j <= nm; ++ j){
@@ -35399,42 +35399,42 @@ ready = function() {
 				w[k] = x;
 			}
 		}
-	
+
 		return true;
 	};
-	
+
 	SVD.pythag = function(a, b){
 		var at = Math.abs(a), bt = Math.abs(b), ct;
-	
+
 		if (at > bt){
 			ct = bt / at;
 			return at * Math.sqrt(1.0 + ct * ct);
 		}
-			
+
 		if (0.0 === bt){
 			return 0.0;
 		}
-	
+
 		ct = at / bt;
 		return bt * Math.sqrt(1.0 + ct * ct);
 	};
-	
+
 	SVD.sign = function(a, b){
 		return b >= 0.0? Math.abs(a): -Math.abs(a);
 	};
 	/*
 	Copyright (c) 2012 Juan Mellado
-	
+
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
 	in the Software without restriction, including without limitation the rights
 	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 	copies of the Software, and to permit persons to whom the Software is
 	furnished to do so, subject to the following conditions:
-	
+
 	The above copyright notice and this permission notice shall be included in
 	all copies or substantial portions of the Software.
-	
+
 	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -35443,51 +35443,51 @@ ready = function() {
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE.
 	*/
-	
+
 	/*
 	References:
 	- "Iterative Pose Estimation using Coplanar Feature Points"
 		Denis Oberkampf, Daniel F. DeMenthon, Larry S. Davis
 		http://www.cfar.umd.edu/~daniel/daniel_papersfordownload/CoplanarPts.pdf
 	*/
-	
+
 	var POS = POS || {};
-	
+
 	POS.Posit = function(modelSize, focalLength){
 		this.objectPoints = this.buildModel(modelSize);
 		this.focalLength = focalLength;
-	
+
 		this.objectVectors = [];
 		this.objectNormal = [];
 		this.objectMatrix = [[],[],[]];
-		
+
 		this.init();
 	};
-	
+
 	POS.Posit.prototype.buildModel = function(modelSize){
 		var half = modelSize / 2.0;
-		
+
 		return [
 			[-half,  half, 0.0],
 			[ half,  half, 0.0],
 			[ half, -half, 0.0],
 			[-half, -half, 0.0] ];
 	};
-	
+
 	POS.Posit.prototype.init = function(){
 		var np = this.objectPoints.length,
 				vectors = [], n = [], len = 0.0, row = 2, i;
-		
+
 		for (i = 0; i < np; ++ i){
 			this.objectVectors[i] = [this.objectPoints[i][0] - this.objectPoints[0][0],
 															 this.objectPoints[i][1] - this.objectPoints[0][1],
 															 this.objectPoints[i][2] - this.objectPoints[0][2]];
-															 
+
 			vectors[i] = [this.objectVectors[i][0],
 										this.objectVectors[i][1],
 										this.objectVectors[i][2]];
 		}
-	
+
 		while(0.0 === len){
 			n[0] = this.objectVectors[1][1] * this.objectVectors[row][2] -
 						 this.objectVectors[1][2] * this.objectVectors[row][1];
@@ -35495,26 +35495,26 @@ ready = function() {
 						 this.objectVectors[1][0] * this.objectVectors[row][2];
 			n[2] = this.objectVectors[1][0] * this.objectVectors[row][1] -
 						 this.objectVectors[1][1] * this.objectVectors[row][0];
-			
+
 			len = Math.sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
-			
+
 			++ row;
 		}
-	
+
 		for (i = 0; i < 3; ++ i){
 			this.objectNormal[i] = n[i] / len;
 		}
-	
+
 		POS.pseudoInverse(vectors, np, this.objectMatrix);
 	};
-	
+
 	POS.Posit.prototype.pose = function(imagePoints){
 		var posRotation1 = [[],[],[]], posRotation2 = [[],[],[]], posTranslation = [],
 				rotation1 = [[],[],[]], rotation2 = [[],[],[]], translation1 = [], translation2 = [],
 				error1, error2, valid1, valid2, i, j;
-	
+
 		this.pos(imagePoints, posRotation1, posRotation2, posTranslation);
-	
+
 		valid1 = this.isValid(posRotation1, posTranslation);
 		if (valid1){
 			error1 = this.iterate(imagePoints, posRotation1, posTranslation, rotation1, translation1);
@@ -35522,7 +35522,7 @@ ready = function() {
 		}else{
 			error1 = {euclidean: -1.0, pixels: -1, maximum: -1.0};
 		}
-		
+
 		valid2 = this.isValid(posRotation2, posTranslation);
 		if (valid2){
 			error2 = this.iterate(imagePoints, posRotation2, posTranslation, rotation2, translation2);
@@ -35530,7 +35530,7 @@ ready = function() {
 		}else{
 			error2 = {euclidean: -1.0, pixels: -1, maximum: -1.0};
 		}
-	
+
 		for (i = 0; i < 3; ++ i){
 			for (j = 0; j < 3; ++ j){
 				if (valid1){
@@ -35541,25 +35541,25 @@ ready = function() {
 				}
 			}
 		}
-		
+
 		// @jeromeetienne patch
 		if( error1 === undefined || error2 === undefined ) return null
-	
+
 		return error1.euclidean < error2.euclidean?
 			new POS.Pose(error1.pixels, rotation1, translation1, error2.pixels, rotation2, translation2):
 			new POS.Pose(error2.pixels, rotation2, translation2, error1.pixels, rotation1, translation1);
 	};
-	
+
 	POS.Posit.prototype.pos = function(imagePoints, rotation1, rotation2, translation){
 		var np = this.objectPoints.length, imageVectors = [],
 				i0 = [], j0 = [], ivec = [], jvec = [], row1 = [], row2 = [], row3 = [],
 				i0i0, j0j0, i0j0, delta, q, lambda, mu, scale, i, j;
-	
+
 		for (i = 0; i < np; ++ i){
 			imageVectors[i] = [imagePoints[i].x - imagePoints[0].x,
 												 imagePoints[i].y - imagePoints[0].y];
 		}
-	
+
 		//i0 and j0
 		for (i = 0; i < 3; ++ i){
 			i0[i] = 0.0;
@@ -35569,20 +35569,20 @@ ready = function() {
 				j0[i] += this.objectMatrix[i][j] * imageVectors[j][1];
 			}
 		}
-	
+
 		i0i0 = i0[0] * i0[0] + i0[1] * i0[1] + i0[2] * i0[2];
 		j0j0 = j0[0] * j0[0] + j0[1] * j0[1] + j0[2] * j0[2];
 		i0j0 = i0[0] * j0[0] + i0[1] * j0[1] + i0[2] * j0[2];
-	
+
 		//Lambda and mu
 		delta = (j0j0 - i0i0) * (j0j0 - i0i0) + 4.0 * (i0j0 * i0j0);
-		
+
 		if (j0j0 - i0i0 >= 0.0){
 			q = (j0j0 - i0i0 + Math.sqrt(delta) ) / 2.0;
 		}else{
 			q = (j0j0 - i0i0 - Math.sqrt(delta) ) / 2.0;
 		}
-		
+
 		if (q >= 0.0){
 			lambda = Math.sqrt(q);
 			if (0.0 === lambda){
@@ -35598,60 +35598,60 @@ ready = function() {
 				mu = -i0j0 / lambda;
 			}
 		}
-	
+
 		//First rotation
 		for (i = 0; i < 3; ++ i){
 			ivec[i] = i0[i] + lambda * this.objectNormal[i];
 			jvec[i] = j0[i] + mu * this.objectNormal[i];
 		}
-		
+
 		scale = Math.sqrt(ivec[0] * ivec[0] + ivec[1] * ivec[1] + ivec[2] * ivec[2]);
-		
+
 		for (i = 0; i < 3; ++ i){
 			row1[i] = ivec[i] / scale;
 			row2[i] = jvec[i] / scale;
 		}
-		
+
 		row3[0] = row1[1] * row2[2] - row1[2] * row2[1];
 		row3[1] = row1[2] * row2[0] - row1[0] * row2[2];
 		row3[2] = row1[0] * row2[1] - row1[1] * row2[0];
-	
+
 		for (i = 0; i < 3; ++ i){
 			rotation1[0][i] = row1[i];
 			rotation1[1][i] = row2[i];
 			rotation1[2][i] = row3[i];
 		}
-	
+
 		//Second rotation
 		for (i = 0; i < 3; ++ i){
 			ivec[i] = i0[i] - lambda * this.objectNormal[i];
 			jvec[i] = j0[i] - mu * this.objectNormal[i];
 		}
-		
+
 		for (i = 0; i < 3; ++ i){
 			row1[i] = ivec[i] / scale;
 			row2[i] = jvec[i] / scale;
 		}
-		
+
 		row3[0] = row1[1] * row2[2] - row1[2] * row2[1];
 		row3[1] = row1[2] * row2[0] - row1[0] * row2[2];
 		row3[2] = row1[0] * row2[1] - row1[1] * row2[0];
-		
+
 		for (i = 0; i < 3; ++ i){
 			rotation2[0][i] = row1[i];
 			rotation2[1][i] = row2[i];
 			rotation2[2][i] = row3[i];
 		}
-	
+
 		//Translation
 		translation[0] = imagePoints[0].x / scale;
 		translation[1] = imagePoints[0].y / scale;
 		translation[2] = this.focalLength / scale;
 	};
-	
+
 	POS.Posit.prototype.isValid = function(rotation, translation){
 		var np = this.objectPoints.length, zmin = Infinity, i = 0, zi;
-	
+
 		for (; i < np; ++ i){
 			zi = translation[2] +
 				(rotation[2][0] * this.objectVectors[i][0] +
@@ -35661,10 +35661,10 @@ ready = function() {
 				zmin = zi;
 			}
 		}
-	
+
 		return zmin >= 0.0;
 	};
-	
+
 	POS.Posit.prototype.iterate = function(imagePoints, posRotation, posTranslation, rotation, translation){
 		var np = this.objectPoints.length,
 				oldSopImagePoints = [], sopImagePoints = [],
@@ -35673,19 +35673,19 @@ ready = function() {
 				converged = false, iteration = 0,
 				oldImageDifference, imageDifference, factor,
 				error, error1, error2, delta, i, j;
-	
+
 		for (i = 0; i < np; ++ i){
 			oldSopImagePoints[i] = {x: imagePoints[i].x,
 															y: imagePoints[i].y};
 		}
-		
+
 		for (i = 0; i < 3; ++ i){
 			for (j = 0; j < 3; ++ j){
 				rotation[i][j] = posRotation[i][j];
 			}
 			translation[i] = posTranslation[i];
 		}
-	
+
 		for (i = 0; i < np; ++ i){
 			factor = 0.0;
 			for (j = 0; j < 3; ++ j){
@@ -35694,50 +35694,50 @@ ready = function() {
 			sopImagePoints[i] = {x: (1.0 + factor) * imagePoints[i].x,
 													 y: (1.0 + factor) * imagePoints[i].y};
 		}
-	
+
 		imageDifference = 0.0;
-		
+
 		for (i = 0; i < np; ++ i){
 			imageDifference += Math.abs(sopImagePoints[i].x - oldSopImagePoints[i].x);
 			imageDifference += Math.abs(sopImagePoints[i].y - oldSopImagePoints[i].y);
 		}
-	
+
 		for (i = 0; i < 3; ++ i){
 			translation1[i] = translation[i] -
 				(rotation[i][0] * this.objectPoints[0][0] +
 				 rotation[i][1] * this.objectPoints[0][1] +
 				 rotation[i][2] * this.objectPoints[0][2]);
 		}
-		
+
 		error1 = this.error(imagePoints, rotation, translation1);
-	
+
 		//Convergence
 		converged = (0.0 === error1.pixels) || (imageDifference < 0.01);
-		
+
 		while( iteration ++ < 100 && !converged ){
-		
+
 			for (i = 0; i < np; ++ i){
 				oldSopImagePoints[i].x = sopImagePoints[i].x;
 				oldSopImagePoints[i].y = sopImagePoints[i].y;
 			}
-	
+
 			this.pos(sopImagePoints, rotation1, rotation2, translation);
-	
+
 			for (i = 0; i < 3; ++ i){
 				translation1[i] = translation[i] -
 					(rotation1[i][0] * this.objectPoints[0][0] +
 					 rotation1[i][1] * this.objectPoints[0][1] +
 					 rotation1[i][2] * this.objectPoints[0][2]);
-					
+
 				translation2[i] = translation[i] -
 					(rotation2[i][0] * this.objectPoints[0][0] +
 					 rotation2[i][1] * this.objectPoints[0][1] +
 					 rotation2[i][2] * this.objectPoints[0][2]);
 			}
-	
+
 			error1 = this.error(imagePoints, rotation1, translation1);
 			error2 = this.error(imagePoints, rotation2, translation2);
-	
+
 			if ( (error1.euclidean >= 0.0) && (error2.euclidean >= 0.0) ){
 				if (error2.euclidean < error1.euclidean){
 					error = error2;
@@ -35755,7 +35755,7 @@ ready = function() {
 					}
 				}
 			}
-	
+
 			if ( (error1.euclidean < 0.0) && (error2.euclidean >= 0.0) ){
 				error = error2;
 				for (i = 0; i < 3; ++ i){
@@ -35764,7 +35764,7 @@ ready = function() {
 					}
 				}
 			}
-			
+
 			if ( (error2.euclidean < 0.0) && (error1.euclidean >= 0.0) ){
 				error = error1;
 				for (i = 0; i < 3; ++ i){
@@ -35773,7 +35773,7 @@ ready = function() {
 					}
 				}
 			}
-	
+
 			for (i = 0; i < np; ++ i){
 				factor = 0.0;
 				for (j = 0; j < 3; ++ j){
@@ -35782,40 +35782,40 @@ ready = function() {
 				sopImagePoints[i].x = (1.0 + factor) * imagePoints[i].x;
 				sopImagePoints[i].y = (1.0 + factor) * imagePoints[i].y;
 			}
-	
+
 			oldImageDifference = imageDifference;
 			imageDifference = 0.0;
-			
+
 			for (i = 0; i < np; ++ i){
 				imageDifference += Math.abs(sopImagePoints[i].x - oldSopImagePoints[i].x);
 				imageDifference += Math.abs(sopImagePoints[i].y - oldSopImagePoints[i].y);
 			}
-	
+
 			delta = Math.abs(imageDifference - oldImageDifference);
-	
+
 			converged = (0.0 === error.pixels) || (delta < 0.01);
 		}
-		
+
 		return error;
 	};
-	
+
 	POS.Posit.prototype.error = function(imagePoints, rotation, translation){
 		var np = this.objectPoints.length,
 				move = [], projection = [], errorvec = [],
 				euclidean = 0.0, pixels = 0.0, maximum = 0.0,
 				i, j, k;
-	
+
 		if ( !this.isValid(rotation, translation) ){
 			return {euclidean: -1.0, pixels: -1, maximum: -1.0};
 		}
-		
+
 		for (i = 0; i < np; ++ i){
 			move[i] = [];
 			for (j = 0; j < 3; ++ j){
 				move[i][j] = translation[j];
 			}
 		}
-		
+
 		for (i = 0; i < np; ++ i){
 			for (j = 0; j < 3; ++ j){
 				for (k = 0; k < 3; ++ k){
@@ -35823,26 +35823,26 @@ ready = function() {
 				}
 			}
 		}
-	
+
 		for (i = 0; i < np; ++ i){
 			projection[i] = [];
 			for (j = 0; j < 2; ++ j){
 				projection[i][j] = this.focalLength * move[i][j] / move[i][2];
 			}
 		}
-		
+
 		for (i = 0; i < np; ++ i){
 			errorvec[i] = [projection[i][0] - imagePoints[i].x,
 										 projection[i][1] - imagePoints[i].y];
 		}
-	
+
 		for (i = 0; i < np; ++ i){
 			euclidean += Math.sqrt(errorvec[i][0] * errorvec[i][0] +
 														 errorvec[i][1] * errorvec[i][1]);
-												 
+
 			pixels += Math.abs( Math.round(projection[i][0]) - Math.round(imagePoints[i].x) ) +
 								Math.abs( Math.round(projection[i][1]) - Math.round(imagePoints[i].y) );
-								
+
 			if (Math.abs(errorvec[i][0]) > maximum){
 				maximum = Math.abs(errorvec[i][0]);
 			}
@@ -35850,31 +35850,31 @@ ready = function() {
 				maximum = Math.abs(errorvec[i][1]);
 			}
 		}
-	
+
 		return {euclidean: euclidean / np, pixels: pixels, maximum: maximum};
 	};
-	
+
 	POS.pseudoInverse = function(a, n, b){
 		var w = [], v = [[],[],[]], s = [[],[],[]],
 				wmax = 0.0, cn = 0,
 				i, j, k;
-	
+
 		SVD.svdcmp(a, n, 3, w, v);
-	
+
 		for (i = 0; i < 3; ++ i){
 			if (w[i] > wmax){
 				wmax = w[i];
 			}
 		}
-	
+
 		wmax *= 0.01;
-	
+
 		for (i = 0; i < 3; ++ i){
 			if (w[i] < wmax){
 				w[i] = 0.0;
 			}
 		}
-	
+
 		for (j = 0; j < 3; ++ j){
 			if (0.0 === w[j]){
 				++ cn;
@@ -35888,19 +35888,19 @@ ready = function() {
 				}
 			}
 		}
-	
+
 		for (j = 0; j < 2; ++ j){
 			if (0.0 === w[j]){
 				w[j] = w[j + 1];
 			}
 		}
-	
+
 		for (i = 0; i < 3; ++ i){
 			for (j = 0; j < 3 - cn; ++ j){
 				s[i][j] = v[i][j] / w[j];
 			}
 		}
-		
+
 		for (i = 0; i < 3; ++ i){
 			for (j = 0; j < n; ++ j){
 				b[i][j] = 0.0;
@@ -35910,7 +35910,7 @@ ready = function() {
 			}
 		}
 	};
-	
+
 	POS.Pose = function(error1, rotation1, translation1, error2, rotation2, translation2){
 		this.bestError = error1;
 		this.bestRotation = rotation1;
@@ -37502,6 +37502,12 @@ ready = function() {
 	}, {
 		id: 860,
 		imageUrl: randomCards[1]
+	}, {
+		id: 411,
+		imageUrl: randomCards[0]
+	}, {
+		id: 667,
+		imageUrl: randomCards[1]
 	}];
 
 	//////////////////////////////////////////////////////////////////////////////////
@@ -37527,13 +37533,13 @@ ready = function() {
 		(function () {
 			var geometry = new THREE.PlaneGeometry(1, 1, 10, 10)
 			var material = new THREE.MeshBasicMaterial({
-				wireframe: true
+				wireframe: false
 			})
-			var mesh = new THREE.Mesh(geometry, material);
-			markerObject3D.add(mesh);
-
-			var mesh = new THREE.AxisHelper
-			markerObject3D.add(mesh);
+			// var mesh = new THREE.Mesh(geometry, material);
+			// markerObject3D.add(mesh);
+			//
+			// var mesh = new THREE.AxisHelper
+			// markerObject3D.add(mesh);
 		})();
 	}
 
@@ -37680,5 +37686,3 @@ ready = function() {
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
-
-
