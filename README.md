@@ -1,12 +1,15 @@
 # wAR
 A card game brought to life via Augmented Reality
 
+**LAUNCH 2016**
 
-LAUNCH 2016
-
-By Jose Juan Isaac Taveras, Nathan Micic, Jeremy Wong, and James Allen Brown
+By [Jose Juan Isaac Taveras](https://github.com/josejuanisaac), [Nathan Micic](https://github.com/Xenonate), [Jeremy Wong](https://github.com/jermspeaks), and [James Allen Brown](https://github.com/jato/)
 
 ## Background
+
+### Game of War
+
+`TBA`
 
 ### AR Technology
 
