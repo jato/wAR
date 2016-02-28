@@ -4,6 +4,7 @@
   <title>wAR</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
     <title>Exploration in AR</title>
@@ -46,8 +47,8 @@
               <h2>wAR</h2>
               <p>War Alternate Reality</p>
               <ul class="actions">
-                <li><a href="#" class="button special">Activate</a></li>
-                <div id="logic-activate" style="display:">
+                <li><a href="play" class="button special">Activate</a></li>
+                <div id="logic-activate" style="display:none">
                   <% if current_user %>
                     Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
                   <% else %>
