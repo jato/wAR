@@ -26,8 +26,13 @@
                   <div id="menu">
                     <ul>
                       <li><a href="/">Home</a></li>
-                      <li><a href="/signup">Sign Up</a></li>
-                      <li><a href="/login">Log In</a></li>
+                      <% if current_user %>
+                      <li><%= current_user.name %></li>
+                      <li><%= link_to "Logout", '/logout' %></li>
+                      <% else %>
+                      <li><%= link_to 'Login', '/login' %></li>
+                      <li><%= link_to 'Signup', '/signup' %></li>
+                      <% end %>
                     </ul>
                   </div>
                 </li>
