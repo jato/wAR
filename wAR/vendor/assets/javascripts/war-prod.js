@@ -1769,7 +1769,7 @@ ready = function() {
 			return this;
 
 		},
-		
+
 		subScalar: function ( s ) {
 
 			this.x -= s;
@@ -2410,7 +2410,7 @@ ready = function() {
 		},
 
 		setFromMatrixColumn: function ( index, matrix ) {
-			
+
 			var offset = index * 4;
 
 			var me = matrix.elements;
@@ -4591,17 +4591,17 @@ ready = function() {
 		},
 
 		extractBasis: function ( xAxis, yAxis, zAxis ) {
-	 
+
 			var te = this.elements;
-	 
+
 			xAxis.set( te[ 0 ], te[ 1 ], te[ 2 ] );
 			yAxis.set( te[ 4 ], te[ 5 ], te[ 6 ] );
 			zAxis.set( te[ 8 ], te[ 9 ], te[ 10 ] );
-	 
+
 			return this;
-			
+
 		},
-	 
+
 		makeBasis: function ( xAxis, yAxis, zAxis ) {
 
 			this.set(
@@ -5752,7 +5752,7 @@ ready = function() {
 				// in order to always return an intersect point that is in front of the ray.
 				if ( t0 < 0 ) return this.at( t1, optionalTarget );
 
-				// else t0 is in front of the ray, so return the first collision point scaled by t0 
+				// else t0 is in front of the ray, so return the first collision point scaled by t0
 				return this.at( t0, optionalTarget );
 
 			}
@@ -10901,7 +10901,7 @@ ready = function() {
 		THREE.Object3D.call( this );
 
 		this.type = 'Light';
-		
+
 		this.color = new THREE.Color( color );
 
 	};
@@ -11841,7 +11841,7 @@ ready = function() {
 				THREE.Cache.add( url, this );
 
 				if ( onLoad ) onLoad( this );
-				
+
 				scope.manager.itemEnd( url );
 
 			}, false );
@@ -14355,7 +14355,7 @@ ready = function() {
 		this.uuid = THREE.Math.generateUUID();
 
 		this.type = 'MeshFaceMaterial';
-		
+
 		this.materials = materials instanceof Array ? materials : [];
 
 	};
@@ -14815,7 +14815,7 @@ ready = function() {
 	THREE.CubeTexture = function ( images, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy ) {
 
 		mapping = mapping !== undefined ? mapping : THREE.CubeReflectionMapping;
-		
+
 		THREE.Texture.call( this, images, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy );
 
 		this.images = images;
@@ -15328,7 +15328,7 @@ ready = function() {
 		THREE.Object3D.call( this );
 
 		this.type = 'Mesh';
-		
+
 		this.geometry = geometry !== undefined ? geometry : new THREE.Geometry();
 		this.material = material !== undefined ? material : new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } );
 
@@ -15820,7 +15820,7 @@ ready = function() {
 	THREE.Skeleton.prototype.update = ( function () {
 
 		var offsetMatrix = new THREE.Matrix4();
-		
+
 		return function () {
 
 			// flatten bone matrices to array
@@ -15841,7 +15841,7 @@ ready = function() {
 				this.boneTexture.needsUpdate = true;
 
 			}
-			
+
 		};
 
 	} )();
@@ -24689,7 +24689,7 @@ ready = function() {
 
 		return function ( gl, type, string ) {
 
-			var shader = gl.createShader( type ); 
+			var shader = gl.createShader( type );
 
 			gl.shaderSource( shader, string );
 			gl.compileShader( shader );
@@ -26915,7 +26915,7 @@ ready = function() {
 
 	THREE.FontUtils.generateShapes = function ( text, parameters ) {
 
-		// Parameters 
+		// Parameters
 
 		parameters = parameters || {};
 
@@ -27693,7 +27693,7 @@ ready = function() {
 
 		this.curves = [];
 		this.bends = [];
-		
+
 		this.autoClose = false; // Automatically closes the path
 	};
 
@@ -27718,11 +27718,11 @@ ready = function() {
 		// Add a line curve if start and end of lines are not connected
 		var startPoint = this.curves[0].getPoint(0);
 		var endPoint = this.curves[this.curves.length - 1].getPoint(1);
-		
+
 		if (! startPoint.equals(endPoint)) {
 			this.curves.push( new THREE.LineCurve(endPoint, startPoint) );
 		}
-		
+
 	};
 
 	// To get accurate point with reference to
@@ -28070,7 +28070,7 @@ ready = function() {
 			}
 
 		};
-		
+
 	}() );
 
 	// File:src/extras/core/Path.js
@@ -28453,7 +28453,7 @@ ready = function() {
 				//console.log(points);
 
 				break;
-				
+
 			case THREE.PathActions.ELLIPSE:
 
 				var aX = args[ 0 ], aY = args[ 1 ],
@@ -28656,7 +28656,7 @@ ready = function() {
 		holesFirst = isCCW ? ! holesFirst : holesFirst;
 
 		// console.log("Holes first", holesFirst);
-		
+
 		var betterShapeHoles = [];
 		var newShapes = [];
 		var newShapeHoles = [];
@@ -28682,7 +28682,7 @@ ready = function() {
 				newShapes[mainIdx] = { s: new THREE.Shape(), p: tmpPoints };
 				newShapes[mainIdx].s.actions = tmpPath.actions;
 				newShapes[mainIdx].s.curves = tmpPath.curves;
-				
+
 				if ( holesFirst )	mainIdx ++;
 				newShapeHoles[mainIdx] = [];
 
@@ -29538,7 +29538,7 @@ ready = function() {
 			angle = this.aStartAngle + t * deltaAngle;
 
 		}
-		
+
 		var vector = new THREE.Vector2();
 
 		vector.x = this.aX + this.xRadius * Math.cos( angle );
@@ -31247,14 +31247,14 @@ ready = function() {
 		function getBevelVec( inPt, inPrev, inNext ) {
 
 			var EPSILON = 0.0000000001;
-			
+
 			// computes for inPt the corresponding point inPt' on a new contour
 			//   shiftet by 1 unit (length of normalized vector) to the left
 			// if we walk along contour clockwise, this new contour is outside the old one
 			//
 			// inPt' is the intersection of the two lines parallel to the two
 			//  adjacent edges of inPt at a distance of 1 unit on the left side.
-			
+
 			var v_trans_x, v_trans_y, shrink_by = 1;		// resulting translation vector for inPt
 
 			// good reading for geometry algorithms (here: line-line intersection)
@@ -31262,38 +31262,38 @@ ready = function() {
 
 			var v_prev_x = inPt.x - inPrev.x, v_prev_y = inPt.y - inPrev.y;
 			var v_next_x = inNext.x - inPt.x, v_next_y = inNext.y - inPt.y;
-			
+
 			var v_prev_lensq = ( v_prev_x * v_prev_x + v_prev_y * v_prev_y );
-			
+
 			// check for colinear edges
 			var colinear0 = ( v_prev_x * v_next_y - v_prev_y * v_next_x );
-			
+
 			if ( Math.abs( colinear0 ) > EPSILON ) {		// not colinear
-				
+
 				// length of vectors for normalizing
-		
+
 				var v_prev_len = Math.sqrt( v_prev_lensq );
 				var v_next_len = Math.sqrt( v_next_x * v_next_x + v_next_y * v_next_y );
-				
+
 				// shift adjacent points by unit vectors to the left
-		
+
 				var ptPrevShift_x = ( inPrev.x - v_prev_y / v_prev_len );
 				var ptPrevShift_y = ( inPrev.y + v_prev_x / v_prev_len );
-				
+
 				var ptNextShift_x = ( inNext.x - v_next_y / v_next_len );
 				var ptNextShift_y = ( inNext.y + v_next_x / v_next_len );
-		
+
 				// scaling factor for v_prev to intersection point
-		
+
 				var sf = (  ( ptNextShift_x - ptPrevShift_x ) * v_next_y -
 							( ptNextShift_y - ptPrevShift_y ) * v_next_x    ) /
 							( v_prev_x * v_next_y - v_prev_y * v_next_x );
-		
+
 				// vector from inPt to intersection point
-		
+
 				v_trans_x = ( ptPrevShift_x + v_prev_x * sf - inPt.x );
 				v_trans_y = ( ptPrevShift_y + v_prev_y * sf - inPt.y );
-		
+
 				// Don't normalize!, otherwise sharp corners become ugly
 				//  but prevent crazy spikes
 				var v_trans_lensq = ( v_trans_x * v_trans_x + v_trans_y * v_trans_y )
@@ -31302,7 +31302,7 @@ ready = function() {
 				} else {
 					shrink_by = Math.sqrt( v_trans_lensq / 2 );
 				}
-				
+
 			} else {		// handle special case of colinear edges
 
 				var direction_eq = false;		// assumes: opposite
@@ -31866,7 +31866,7 @@ ready = function() {
 	 * @author bhouston / http://exocortex.com
 	 */
 
-	// points - to create a closed torus, one must use a set of points 
+	// points - to create a closed torus, one must use a set of points
 	//    like so: [ a, b, c, d, a ], see first is the same as last.
 	// segments - the number of circumference segments to create
 	// phiStart - the starting radian
@@ -32200,7 +32200,7 @@ ready = function() {
 			phiStart: phiStart,
 			phiLength: phiLength,
 			thetaStart: thetaStart,
-			thetaLength: thetaLength 
+			thetaLength: thetaLength
 		};
 
 		radius = radius || 50;
@@ -32474,7 +32474,7 @@ ready = function() {
 		p = p || 2;
 		q = q || 3;
 		heightScale = heightScale || 1;
-		
+
 		var grid = new Array( radialSegments );
 		var tang = new THREE.Vector3();
 		var n = new THREE.Vector3();
@@ -33736,7 +33736,7 @@ ready = function() {
 	THREE.CameraHelper.prototype.update = function () {
 
 		var geometry, pointMap;
-		
+
 		var vector = new THREE.Vector3();
 		var camera = new THREE.Camera();
 
@@ -35141,17 +35141,17 @@ ready = function() {
 	a+"px",m=b,r=0);return b},update:function(){l=this.end()}}};
 	/*
 	Copyright (c) 2012 Juan Mellado
-	
+
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
 	in the Software without restriction, including without limitation the rights
 	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 	copies of the Software, and to permit persons to whom the Software is
 	furnished to do so, subject to the following conditions:
-	
+
 	The above copyright notice and this permission notice shall be included in
 	all copies or substantial portions of the Software.
-	
+
 	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -35160,19 +35160,19 @@ ready = function() {
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE.
 	*/
-	
+
 	/*
 	References:
 	- "Numerical Recipes in C - Second Edition"
 		http://www.nr.com/
 	*/
-	
+
 	var SVD = SVD || {};
-	
+
 	SVD.svdcmp = function(a, m, n, w, v){
 		var flag, i, its, j, jj, k, l, nm,
 				anorm = 0.0, c, f, g = 0.0, h, s, scale = 0.0, x, y, z, rv1 = [];
-				
+
 		//Householder reduction to bidiagonal form
 		for (i = 0; i < n; ++ i){
 			l = i + 1;
@@ -35238,7 +35238,7 @@ ready = function() {
 			}
 			anorm = Math.max(anorm, ( Math.abs( w[i] ) + Math.abs( rv1[i] ) ) );
 		}
-	
+
 		//Acumulation of right-hand transformation
 		for (i = n - 1; i >= 0; -- i){
 			if (i < n - 1){
@@ -35263,7 +35263,7 @@ ready = function() {
 			g = rv1[i];
 			l = i;
 		}
-	
+
 		//Acumulation of left-hand transformation
 		for (i = Math.min(n, m) - 1; i >= 0; -- i){
 			l = i + 1;
@@ -35292,7 +35292,7 @@ ready = function() {
 			}
 			++ a[i][i];
 		}
-	
+
 		//Diagonalization of the bidiagonal form
 		for (k = n - 1; k >= 0; -- k){
 			for (its = 1; its <= 30; ++ its){
@@ -35329,7 +35329,7 @@ ready = function() {
 						}
 					}
 				}
-	
+
 				//Convergence
 				z = w[k];
 				if (l === k){
@@ -35341,11 +35341,11 @@ ready = function() {
 					}
 					break;
 				}
-	
+
 				if (30 === its){
 					return false;
 				}
-	
+
 				//Shift from bottom 2-by-2 minor
 				x = w[l];
 				nm = k - 1;
@@ -35355,7 +35355,7 @@ ready = function() {
 				f = ( (y - z) * (y + z) + (g - h) * (g + h) ) / (2.0 * h * y);
 				g = SVD.pythag( f, 1.0 );
 				f = ( (x - z) * (x + z) + h * ( (y / (f + SVD.sign(g, f) ) ) - h) ) / x;
-	
+
 				//Next QR transformation
 				c = s = 1.0;
 				for (j = l; j <= nm; ++ j){
@@ -35399,42 +35399,42 @@ ready = function() {
 				w[k] = x;
 			}
 		}
-	
+
 		return true;
 	};
-	
+
 	SVD.pythag = function(a, b){
 		var at = Math.abs(a), bt = Math.abs(b), ct;
-	
+
 		if (at > bt){
 			ct = bt / at;
 			return at * Math.sqrt(1.0 + ct * ct);
 		}
-			
+
 		if (0.0 === bt){
 			return 0.0;
 		}
-	
+
 		ct = at / bt;
 		return bt * Math.sqrt(1.0 + ct * ct);
 	};
-	
+
 	SVD.sign = function(a, b){
 		return b >= 0.0? Math.abs(a): -Math.abs(a);
 	};
 	/*
 	Copyright (c) 2012 Juan Mellado
-	
+
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
 	in the Software without restriction, including without limitation the rights
 	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 	copies of the Software, and to permit persons to whom the Software is
 	furnished to do so, subject to the following conditions:
-	
+
 	The above copyright notice and this permission notice shall be included in
 	all copies or substantial portions of the Software.
-	
+
 	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -35443,51 +35443,51 @@ ready = function() {
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE.
 	*/
-	
+
 	/*
 	References:
 	- "Iterative Pose Estimation using Coplanar Feature Points"
 		Denis Oberkampf, Daniel F. DeMenthon, Larry S. Davis
 		http://www.cfar.umd.edu/~daniel/daniel_papersfordownload/CoplanarPts.pdf
 	*/
-	
+
 	var POS = POS || {};
-	
+
 	POS.Posit = function(modelSize, focalLength){
 		this.objectPoints = this.buildModel(modelSize);
 		this.focalLength = focalLength;
-	
+
 		this.objectVectors = [];
 		this.objectNormal = [];
 		this.objectMatrix = [[],[],[]];
-		
+
 		this.init();
 	};
-	
+
 	POS.Posit.prototype.buildModel = function(modelSize){
 		var half = modelSize / 2.0;
-		
+
 		return [
 			[-half,  half, 0.0],
 			[ half,  half, 0.0],
 			[ half, -half, 0.0],
 			[-half, -half, 0.0] ];
 	};
-	
+
 	POS.Posit.prototype.init = function(){
 		var np = this.objectPoints.length,
 				vectors = [], n = [], len = 0.0, row = 2, i;
-		
+
 		for (i = 0; i < np; ++ i){
 			this.objectVectors[i] = [this.objectPoints[i][0] - this.objectPoints[0][0],
 															 this.objectPoints[i][1] - this.objectPoints[0][1],
 															 this.objectPoints[i][2] - this.objectPoints[0][2]];
-															 
+
 			vectors[i] = [this.objectVectors[i][0],
 										this.objectVectors[i][1],
 										this.objectVectors[i][2]];
 		}
-	
+
 		while(0.0 === len){
 			n[0] = this.objectVectors[1][1] * this.objectVectors[row][2] -
 						 this.objectVectors[1][2] * this.objectVectors[row][1];
@@ -35495,26 +35495,26 @@ ready = function() {
 						 this.objectVectors[1][0] * this.objectVectors[row][2];
 			n[2] = this.objectVectors[1][0] * this.objectVectors[row][1] -
 						 this.objectVectors[1][1] * this.objectVectors[row][0];
-			
+
 			len = Math.sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
-			
+
 			++ row;
 		}
-	
+
 		for (i = 0; i < 3; ++ i){
 			this.objectNormal[i] = n[i] / len;
 		}
-	
+
 		POS.pseudoInverse(vectors, np, this.objectMatrix);
 	};
-	
+
 	POS.Posit.prototype.pose = function(imagePoints){
 		var posRotation1 = [[],[],[]], posRotation2 = [[],[],[]], posTranslation = [],
 				rotation1 = [[],[],[]], rotation2 = [[],[],[]], translation1 = [], translation2 = [],
 				error1, error2, valid1, valid2, i, j;
-	
+
 		this.pos(imagePoints, posRotation1, posRotation2, posTranslation);
-	
+
 		valid1 = this.isValid(posRotation1, posTranslation);
 		if (valid1){
 			error1 = this.iterate(imagePoints, posRotation1, posTranslation, rotation1, translation1);
@@ -35522,7 +35522,7 @@ ready = function() {
 		}else{
 			error1 = {euclidean: -1.0, pixels: -1, maximum: -1.0};
 		}
-		
+
 		valid2 = this.isValid(posRotation2, posTranslation);
 		if (valid2){
 			error2 = this.iterate(imagePoints, posRotation2, posTranslation, rotation2, translation2);
@@ -35530,7 +35530,7 @@ ready = function() {
 		}else{
 			error2 = {euclidean: -1.0, pixels: -1, maximum: -1.0};
 		}
-	
+
 		for (i = 0; i < 3; ++ i){
 			for (j = 0; j < 3; ++ j){
 				if (valid1){
@@ -35541,25 +35541,25 @@ ready = function() {
 				}
 			}
 		}
-		
+
 		// @jeromeetienne patch
 		if( error1 === undefined || error2 === undefined ) return null
-	
+
 		return error1.euclidean < error2.euclidean?
 			new POS.Pose(error1.pixels, rotation1, translation1, error2.pixels, rotation2, translation2):
 			new POS.Pose(error2.pixels, rotation2, translation2, error1.pixels, rotation1, translation1);
 	};
-	
+
 	POS.Posit.prototype.pos = function(imagePoints, rotation1, rotation2, translation){
 		var np = this.objectPoints.length, imageVectors = [],
 				i0 = [], j0 = [], ivec = [], jvec = [], row1 = [], row2 = [], row3 = [],
 				i0i0, j0j0, i0j0, delta, q, lambda, mu, scale, i, j;
-	
+
 		for (i = 0; i < np; ++ i){
 			imageVectors[i] = [imagePoints[i].x - imagePoints[0].x,
 												 imagePoints[i].y - imagePoints[0].y];
 		}
-	
+
 		//i0 and j0
 		for (i = 0; i < 3; ++ i){
 			i0[i] = 0.0;
@@ -35569,20 +35569,20 @@ ready = function() {
 				j0[i] += this.objectMatrix[i][j] * imageVectors[j][1];
 			}
 		}
-	
+
 		i0i0 = i0[0] * i0[0] + i0[1] * i0[1] + i0[2] * i0[2];
 		j0j0 = j0[0] * j0[0] + j0[1] * j0[1] + j0[2] * j0[2];
 		i0j0 = i0[0] * j0[0] + i0[1] * j0[1] + i0[2] * j0[2];
-	
+
 		//Lambda and mu
 		delta = (j0j0 - i0i0) * (j0j0 - i0i0) + 4.0 * (i0j0 * i0j0);
-		
+
 		if (j0j0 - i0i0 >= 0.0){
 			q = (j0j0 - i0i0 + Math.sqrt(delta) ) / 2.0;
 		}else{
 			q = (j0j0 - i0i0 - Math.sqrt(delta) ) / 2.0;
 		}
-		
+
 		if (q >= 0.0){
 			lambda = Math.sqrt(q);
 			if (0.0 === lambda){
@@ -35598,60 +35598,60 @@ ready = function() {
 				mu = -i0j0 / lambda;
 			}
 		}
-	
+
 		//First rotation
 		for (i = 0; i < 3; ++ i){
 			ivec[i] = i0[i] + lambda * this.objectNormal[i];
 			jvec[i] = j0[i] + mu * this.objectNormal[i];
 		}
-		
+
 		scale = Math.sqrt(ivec[0] * ivec[0] + ivec[1] * ivec[1] + ivec[2] * ivec[2]);
-		
+
 		for (i = 0; i < 3; ++ i){
 			row1[i] = ivec[i] / scale;
 			row2[i] = jvec[i] / scale;
 		}
-		
+
 		row3[0] = row1[1] * row2[2] - row1[2] * row2[1];
 		row3[1] = row1[2] * row2[0] - row1[0] * row2[2];
 		row3[2] = row1[0] * row2[1] - row1[1] * row2[0];
-	
+
 		for (i = 0; i < 3; ++ i){
 			rotation1[0][i] = row1[i];
 			rotation1[1][i] = row2[i];
 			rotation1[2][i] = row3[i];
 		}
-	
+
 		//Second rotation
 		for (i = 0; i < 3; ++ i){
 			ivec[i] = i0[i] - lambda * this.objectNormal[i];
 			jvec[i] = j0[i] - mu * this.objectNormal[i];
 		}
-		
+
 		for (i = 0; i < 3; ++ i){
 			row1[i] = ivec[i] / scale;
 			row2[i] = jvec[i] / scale;
 		}
-		
+
 		row3[0] = row1[1] * row2[2] - row1[2] * row2[1];
 		row3[1] = row1[2] * row2[0] - row1[0] * row2[2];
 		row3[2] = row1[0] * row2[1] - row1[1] * row2[0];
-		
+
 		for (i = 0; i < 3; ++ i){
 			rotation2[0][i] = row1[i];
 			rotation2[1][i] = row2[i];
 			rotation2[2][i] = row3[i];
 		}
-	
+
 		//Translation
 		translation[0] = imagePoints[0].x / scale;
 		translation[1] = imagePoints[0].y / scale;
 		translation[2] = this.focalLength / scale;
 	};
-	
+
 	POS.Posit.prototype.isValid = function(rotation, translation){
 		var np = this.objectPoints.length, zmin = Infinity, i = 0, zi;
-	
+
 		for (; i < np; ++ i){
 			zi = translation[2] +
 				(rotation[2][0] * this.objectVectors[i][0] +
@@ -35661,10 +35661,10 @@ ready = function() {
 				zmin = zi;
 			}
 		}
-	
+
 		return zmin >= 0.0;
 	};
-	
+
 	POS.Posit.prototype.iterate = function(imagePoints, posRotation, posTranslation, rotation, translation){
 		var np = this.objectPoints.length,
 				oldSopImagePoints = [], sopImagePoints = [],
@@ -35673,19 +35673,19 @@ ready = function() {
 				converged = false, iteration = 0,
 				oldImageDifference, imageDifference, factor,
 				error, error1, error2, delta, i, j;
-	
+
 		for (i = 0; i < np; ++ i){
 			oldSopImagePoints[i] = {x: imagePoints[i].x,
 															y: imagePoints[i].y};
 		}
-		
+
 		for (i = 0; i < 3; ++ i){
 			for (j = 0; j < 3; ++ j){
 				rotation[i][j] = posRotation[i][j];
 			}
 			translation[i] = posTranslation[i];
 		}
-	
+
 		for (i = 0; i < np; ++ i){
 			factor = 0.0;
 			for (j = 0; j < 3; ++ j){
@@ -35694,50 +35694,50 @@ ready = function() {
 			sopImagePoints[i] = {x: (1.0 + factor) * imagePoints[i].x,
 													 y: (1.0 + factor) * imagePoints[i].y};
 		}
-	
+
 		imageDifference = 0.0;
-		
+
 		for (i = 0; i < np; ++ i){
 			imageDifference += Math.abs(sopImagePoints[i].x - oldSopImagePoints[i].x);
 			imageDifference += Math.abs(sopImagePoints[i].y - oldSopImagePoints[i].y);
 		}
-	
+
 		for (i = 0; i < 3; ++ i){
 			translation1[i] = translation[i] -
 				(rotation[i][0] * this.objectPoints[0][0] +
 				 rotation[i][1] * this.objectPoints[0][1] +
 				 rotation[i][2] * this.objectPoints[0][2]);
 		}
-		
+
 		error1 = this.error(imagePoints, rotation, translation1);
-	
+
 		//Convergence
 		converged = (0.0 === error1.pixels) || (imageDifference < 0.01);
-		
+
 		while( iteration ++ < 100 && !converged ){
-		
+
 			for (i = 0; i < np; ++ i){
 				oldSopImagePoints[i].x = sopImagePoints[i].x;
 				oldSopImagePoints[i].y = sopImagePoints[i].y;
 			}
-	
+
 			this.pos(sopImagePoints, rotation1, rotation2, translation);
-	
+
 			for (i = 0; i < 3; ++ i){
 				translation1[i] = translation[i] -
 					(rotation1[i][0] * this.objectPoints[0][0] +
 					 rotation1[i][1] * this.objectPoints[0][1] +
 					 rotation1[i][2] * this.objectPoints[0][2]);
-					
+
 				translation2[i] = translation[i] -
 					(rotation2[i][0] * this.objectPoints[0][0] +
 					 rotation2[i][1] * this.objectPoints[0][1] +
 					 rotation2[i][2] * this.objectPoints[0][2]);
 			}
-	
+
 			error1 = this.error(imagePoints, rotation1, translation1);
 			error2 = this.error(imagePoints, rotation2, translation2);
-	
+
 			if ( (error1.euclidean >= 0.0) && (error2.euclidean >= 0.0) ){
 				if (error2.euclidean < error1.euclidean){
 					error = error2;
@@ -35755,7 +35755,7 @@ ready = function() {
 					}
 				}
 			}
-	
+
 			if ( (error1.euclidean < 0.0) && (error2.euclidean >= 0.0) ){
 				error = error2;
 				for (i = 0; i < 3; ++ i){
@@ -35764,7 +35764,7 @@ ready = function() {
 					}
 				}
 			}
-			
+
 			if ( (error2.euclidean < 0.0) && (error1.euclidean >= 0.0) ){
 				error = error1;
 				for (i = 0; i < 3; ++ i){
@@ -35773,7 +35773,7 @@ ready = function() {
 					}
 				}
 			}
-	
+
 			for (i = 0; i < np; ++ i){
 				factor = 0.0;
 				for (j = 0; j < 3; ++ j){
@@ -35782,40 +35782,40 @@ ready = function() {
 				sopImagePoints[i].x = (1.0 + factor) * imagePoints[i].x;
 				sopImagePoints[i].y = (1.0 + factor) * imagePoints[i].y;
 			}
-	
+
 			oldImageDifference = imageDifference;
 			imageDifference = 0.0;
-			
+
 			for (i = 0; i < np; ++ i){
 				imageDifference += Math.abs(sopImagePoints[i].x - oldSopImagePoints[i].x);
 				imageDifference += Math.abs(sopImagePoints[i].y - oldSopImagePoints[i].y);
 			}
-	
+
 			delta = Math.abs(imageDifference - oldImageDifference);
-	
+
 			converged = (0.0 === error.pixels) || (delta < 0.01);
 		}
-		
+
 		return error;
 	};
-	
+
 	POS.Posit.prototype.error = function(imagePoints, rotation, translation){
 		var np = this.objectPoints.length,
 				move = [], projection = [], errorvec = [],
 				euclidean = 0.0, pixels = 0.0, maximum = 0.0,
 				i, j, k;
-	
+
 		if ( !this.isValid(rotation, translation) ){
 			return {euclidean: -1.0, pixels: -1, maximum: -1.0};
 		}
-		
+
 		for (i = 0; i < np; ++ i){
 			move[i] = [];
 			for (j = 0; j < 3; ++ j){
 				move[i][j] = translation[j];
 			}
 		}
-		
+
 		for (i = 0; i < np; ++ i){
 			for (j = 0; j < 3; ++ j){
 				for (k = 0; k < 3; ++ k){
@@ -35823,26 +35823,26 @@ ready = function() {
 				}
 			}
 		}
-	
+
 		for (i = 0; i < np; ++ i){
 			projection[i] = [];
 			for (j = 0; j < 2; ++ j){
 				projection[i][j] = this.focalLength * move[i][j] / move[i][2];
 			}
 		}
-		
+
 		for (i = 0; i < np; ++ i){
 			errorvec[i] = [projection[i][0] - imagePoints[i].x,
 										 projection[i][1] - imagePoints[i].y];
 		}
-	
+
 		for (i = 0; i < np; ++ i){
 			euclidean += Math.sqrt(errorvec[i][0] * errorvec[i][0] +
 														 errorvec[i][1] * errorvec[i][1]);
-												 
+
 			pixels += Math.abs( Math.round(projection[i][0]) - Math.round(imagePoints[i].x) ) +
 								Math.abs( Math.round(projection[i][1]) - Math.round(imagePoints[i].y) );
-								
+
 			if (Math.abs(errorvec[i][0]) > maximum){
 				maximum = Math.abs(errorvec[i][0]);
 			}
@@ -35850,31 +35850,31 @@ ready = function() {
 				maximum = Math.abs(errorvec[i][1]);
 			}
 		}
-	
+
 		return {euclidean: euclidean / np, pixels: pixels, maximum: maximum};
 	};
-	
+
 	POS.pseudoInverse = function(a, n, b){
 		var w = [], v = [[],[],[]], s = [[],[],[]],
 				wmax = 0.0, cn = 0,
 				i, j, k;
-	
+
 		SVD.svdcmp(a, n, 3, w, v);
-	
+
 		for (i = 0; i < 3; ++ i){
 			if (w[i] > wmax){
 				wmax = w[i];
 			}
 		}
-	
+
 		wmax *= 0.01;
-	
+
 		for (i = 0; i < 3; ++ i){
 			if (w[i] < wmax){
 				w[i] = 0.0;
 			}
 		}
-	
+
 		for (j = 0; j < 3; ++ j){
 			if (0.0 === w[j]){
 				++ cn;
@@ -35888,19 +35888,19 @@ ready = function() {
 				}
 			}
 		}
-	
+
 		for (j = 0; j < 2; ++ j){
 			if (0.0 === w[j]){
 				w[j] = w[j + 1];
 			}
 		}
-	
+
 		for (i = 0; i < 3; ++ i){
 			for (j = 0; j < 3 - cn; ++ j){
 				s[i][j] = v[i][j] / w[j];
 			}
 		}
-		
+
 		for (i = 0; i < 3; ++ i){
 			for (j = 0; j < n; ++ j){
 				b[i][j] = 0.0;
@@ -35910,7 +35910,7 @@ ready = function() {
 			}
 		}
 	};
-	
+
 	POS.Pose = function(error1, rotation1, translation1, error2, rotation2, translation2){
 		this.bestError = error1;
 		this.bestRotation = rotation1;
@@ -36933,6 +36933,780 @@ ready = function() {
 
 		return dst;
 	};
+	// /**
+	// * @author sole / http://soledadpenades.com
+	// * @author mrdoob / http://mrdoob.com
+	// * @author Robert Eisele / http://www.xarg.org
+	// * @author Philippe / http://philippe.elsass.me
+	// * @author Robert Penner / http://www.robertpenner.com/easing_terms_of_use.html
+	// * @author Paul Lewis / http://www.aerotwist.com/
+	// * @author lechecacharro
+	// * @author Josh Faul / http://jocafa.com/
+	// * @author egraether / http://egraether.com/
+	// * @author endel / http://endel.me
+	// */
+
+	// var TWEEN = TWEEN || ( function () {
+
+	// var _tweens = [];
+
+	// return {
+
+	//     REVISION: '10',
+
+	//     getAll: function () {
+
+	//         return _tweens;
+
+	//     },
+
+	//     removeAll: function () {
+
+	//         _tweens = [];
+
+	//     },
+
+	//     add: function ( tween ) {
+
+	//         _tweens.push( tween );
+
+	//     },
+
+	//     remove: function ( tween ) {
+
+	//         var i = _tweens.indexOf( tween );
+
+	//         if ( i !== -1 ) {
+
+	//             _tweens.splice( i, 1 );
+
+	//         }
+
+	//     },
+
+	//     update: function ( time ) {
+
+	//         if ( _tweens.length === 0 ) return false;
+
+	//         var i = 0, numTweens = _tweens.length;
+
+	//         time = time !== undefined ? time : ( window.performance !== undefined && window.performance.now !== undefined ? window.performance.now() : Date.now() );
+
+	//         while ( i < numTweens ) {
+
+	//             if ( _tweens[ i ].update( time ) ) {
+
+	//                 i ++;
+
+	//             } else {
+
+	//                 _tweens.splice( i, 1 );
+
+	//                 numTweens --;
+
+	//             }
+
+	//         }
+
+	//         return true;
+
+	//     }
+	// };
+
+	// } )();
+
+	// TWEEN.Tween = function ( object ) {
+
+	// var _object = object;
+	// var _valuesStart = {};
+	// var _valuesEnd = {};
+	// var _valuesStartRepeat = {};
+	// var _duration = 1000;
+	// var _repeat = 0;
+	// var _delayTime = 0;
+	// var _startTime = null;
+	// var _easingFunction = TWEEN.Easing.Linear.None;
+	// var _interpolationFunction = TWEEN.Interpolation.Linear;
+	// var _chainedTweens = [];
+	// var _onStartCallback = null;
+	// var _onStartCallbackFired = false;
+	// var _onUpdateCallback = null;
+	// var _onCompleteCallback = null;
+
+	// // Set all starting values present on the target object
+	// for ( var field in object ) {
+
+	//     _valuesStart[ field ] = parseFloat(object[field], 10);
+
+	// }
+
+	// this.to = function ( properties, duration ) {
+
+	//     if ( duration !== undefined ) {
+
+	//         _duration = duration;
+
+	//     }
+
+	//     _valuesEnd = properties;
+
+	//     return this;
+
+	// };
+
+	// this.start = function ( time ) {
+
+	//     TWEEN.add( this );
+
+	//     _onStartCallbackFired = false;
+
+	//     _startTime = time !== undefined ? time : (window.performance !== undefined && window.performance.now !== undefined ? window.performance.now() : Date.now() );
+	//     _startTime += _delayTime;
+
+	//     for ( var property in _valuesEnd ) {
+
+	//         // check if an Array was provided as property value
+	//         if ( _valuesEnd[ property ] instanceof Array ) {
+
+	//             if ( _valuesEnd[ property ].length === 0 ) {
+
+	//                 continue;
+
+	//             }
+
+	//             // create a local copy of the Array with the start value at the front
+	//             _valuesEnd[ property ] = [ _object[ property ] ].concat( _valuesEnd[ property ] );
+
+	//         }
+
+	//         _valuesStart[ property ] = _object[ property ];
+
+	//         if( ( _valuesStart[ property ] instanceof Array ) === false ) {
+	//             _valuesStart[ property ] *= 1.0; // Ensures we're using numbers, not strings
+	//         }
+
+	//         _valuesStartRepeat[ property ] = _valuesStart[ property ] || 0;
+
+	//     }
+
+	//     return this;
+
+	// };
+
+	// this.stop = function () {
+
+	//     TWEEN.remove( this );
+	//     return this;
+
+	// };
+
+	// this.delay = function ( amount ) {
+
+	//     _delayTime = amount;
+	//     return this;
+
+	// };
+
+	// this.repeat = function ( times ) {
+
+	//     _repeat = times;
+	//     return this;
+
+	// };
+
+	// this.easing = function ( easing ) {
+
+	//     _easingFunction = easing;
+	//     return this;
+
+	// };
+
+	// this.interpolation = function ( interpolation ) {
+
+	//     _interpolationFunction = interpolation;
+	//     return this;
+
+	// };
+
+	// this.chain = function () {
+
+	//     _chainedTweens = arguments;
+	//     return this;
+
+	// };
+
+	// this.onStart = function ( callback ) {
+
+	//     _onStartCallback = callback;
+	//     return this;
+
+	// };
+
+	// this.onUpdate = function ( callback ) {
+
+	//     _onUpdateCallback = callback;
+	//     return this;
+
+	// };
+
+	// this.onComplete = function ( callback ) {
+
+	//     _onCompleteCallback = callback;
+	//     return this;
+
+	// };
+
+	// this.update = function ( time ) {
+
+	//     if ( time < _startTime ) {
+
+	//         return true;
+
+	//     }
+
+	//     if ( _onStartCallbackFired === false ) {
+
+	//         if ( _onStartCallback !== null ) {
+
+	//             _onStartCallback.call( _object );
+
+	//         }
+
+	//         _onStartCallbackFired = true;
+
+	//     }
+
+	//     var elapsed = ( time - _startTime ) / _duration;
+	//     elapsed = elapsed > 1 ? 1 : elapsed;
+
+	//     var value = _easingFunction( elapsed );
+
+	//     for ( var property in _valuesEnd ) {
+
+	//         var start = _valuesStart[ property ] || 0;
+	//         var end = _valuesEnd[ property ];
+
+	//         if ( end instanceof Array ) {
+
+	//             _object[ property ] = _interpolationFunction( end, value );
+
+	//         } else {
+
+	//             if ( typeof(end) === "string" ) {
+	//                 end = start + parseFloat(end, 10);
+	//             }
+
+	//             _object[ property ] = start + ( end - start ) * value;
+
+	//         }
+
+	//     }
+
+	//     if ( _onUpdateCallback !== null ) {
+
+	//         _onUpdateCallback.call( _object, value );
+
+	//     }
+
+	//     if ( elapsed == 1 ) {
+
+	//         if ( _repeat > 0 ) {
+
+	//             if( isFinite( _repeat ) ) {
+	//                 _repeat--;
+	//             }
+
+	//             // reassign starting values, restart by making startTime = now
+	//             for( var property in _valuesStartRepeat ) {
+
+	//                 if ( typeof( _valuesEnd[ property ] ) === "string" ) {
+	//                     _valuesStartRepeat[ property ] = _valuesStartRepeat[ property ] + parseFloat(_valuesEnd[ property ], 10);
+	//                 }
+
+	//                 _valuesStart[ property ] = _valuesStartRepeat[ property ];
+
+	//             }
+
+	//             _startTime = time + _delayTime;
+
+	//             return true;
+
+	//         } else {
+
+	//             if ( _onCompleteCallback !== null ) {
+
+	//                 _onCompleteCallback.call( _object );
+
+	//             }
+
+	//             for ( var i = 0, numChainedTweens = _chainedTweens.length; i < numChainedTweens; i ++ ) {
+
+	//                 _chainedTweens[ i ].start( time );
+
+	//             }
+
+	//             return false;
+
+	//         }
+
+	//     }
+
+	//     return true;
+
+	// };
+
+	// };
+
+	// TWEEN.Easing = {
+
+	// Linear: {
+
+	//     None: function ( k ) {
+
+	//         return k;
+
+	//     }
+
+	// },
+
+	// Quadratic: {
+
+	//     In: function ( k ) {
+
+	//         return k * k;
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         return k * ( 2 - k );
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         if ( ( k *= 2 ) < 1 ) return 0.5 * k * k;
+	//         return - 0.5 * ( --k * ( k - 2 ) - 1 );
+
+	//     }
+
+	// },
+
+	// Cubic: {
+
+	//     In: function ( k ) {
+
+	//         return k * k * k;
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         return --k * k * k + 1;
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         if ( ( k *= 2 ) < 1 ) return 0.5 * k * k * k;
+	//         return 0.5 * ( ( k -= 2 ) * k * k + 2 );
+
+	//     }
+
+	// },
+
+	// Quartic: {
+
+	//     In: function ( k ) {
+
+	//         return k * k * k * k;
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         return 1 - ( --k * k * k * k );
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         if ( ( k *= 2 ) < 1) return 0.5 * k * k * k * k;
+	//         return - 0.5 * ( ( k -= 2 ) * k * k * k - 2 );
+
+	//     }
+
+	// },
+
+	// Quintic: {
+
+	//     In: function ( k ) {
+
+	//         return k * k * k * k * k;
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         return --k * k * k * k * k + 1;
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         if ( ( k *= 2 ) < 1 ) return 0.5 * k * k * k * k * k;
+	//         return 0.5 * ( ( k -= 2 ) * k * k * k * k + 2 );
+
+	//     }
+
+	// },
+
+	// Sinusoidal: {
+
+	//     In: function ( k ) {
+
+	//         return 1 - Math.cos( k * Math.PI / 2 );
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         return Math.sin( k * Math.PI / 2 );
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         return 0.5 * ( 1 - Math.cos( Math.PI * k ) );
+
+	//     }
+
+	// },
+
+	// Exponential: {
+
+	//     In: function ( k ) {
+
+	//         return k === 0 ? 0 : Math.pow( 1024, k - 1 );
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         return k === 1 ? 1 : 1 - Math.pow( 2, - 10 * k );
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         if ( k === 0 ) return 0;
+	//         if ( k === 1 ) return 1;
+	//         if ( ( k *= 2 ) < 1 ) return 0.5 * Math.pow( 1024, k - 1 );
+	//         return 0.5 * ( - Math.pow( 2, - 10 * ( k - 1 ) ) + 2 );
+
+	//     }
+
+	// },
+
+	// Circular: {
+
+	//     In: function ( k ) {
+
+	//         return 1 - Math.sqrt( 1 - k * k );
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         return Math.sqrt( 1 - ( --k * k ) );
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         if ( ( k *= 2 ) < 1) return - 0.5 * ( Math.sqrt( 1 - k * k) - 1);
+	//         return 0.5 * ( Math.sqrt( 1 - ( k -= 2) * k) + 1);
+
+	//     }
+
+	// },
+
+	// Elastic: {
+
+	//     In: function ( k ) {
+
+	//         var s, a = 0.1, p = 0.4;
+	//         if ( k === 0 ) return 0;
+	//         if ( k === 1 ) return 1;
+	//         if ( !a || a < 1 ) { a = 1; s = p / 4; }
+	//         else s = p * Math.asin( 1 / a ) / ( 2 * Math.PI );
+	//         return - ( a * Math.pow( 2, 10 * ( k -= 1 ) ) * Math.sin( ( k - s ) * ( 2 * Math.PI ) / p ) );
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         var s, a = 0.1, p = 0.4;
+	//         if ( k === 0 ) return 0;
+	//         if ( k === 1 ) return 1;
+	//         if ( !a || a < 1 ) { a = 1; s = p / 4; }
+	//         else s = p * Math.asin( 1 / a ) / ( 2 * Math.PI );
+	//         return ( a * Math.pow( 2, - 10 * k) * Math.sin( ( k - s ) * ( 2 * Math.PI ) / p ) + 1 );
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         var s, a = 0.1, p = 0.4;
+	//         if ( k === 0 ) return 0;
+	//         if ( k === 1 ) return 1;
+	//         if ( !a || a < 1 ) { a = 1; s = p / 4; }
+	//         else s = p * Math.asin( 1 / a ) / ( 2 * Math.PI );
+	//         if ( ( k *= 2 ) < 1 ) return - 0.5 * ( a * Math.pow( 2, 10 * ( k -= 1 ) ) * Math.sin( ( k - s ) * ( 2 * Math.PI ) / p ) );
+	//         return a * Math.pow( 2, -10 * ( k -= 1 ) ) * Math.sin( ( k - s ) * ( 2 * Math.PI ) / p ) * 0.5 + 1;
+
+	//     }
+
+	// },
+
+	// Back: {
+
+	//     In: function ( k ) {
+
+	//         var s = 1.70158;
+	//         return k * k * ( ( s + 1 ) * k - s );
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         var s = 1.70158;
+	//         return --k * k * ( ( s + 1 ) * k + s ) + 1;
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         var s = 1.70158 * 1.525;
+	//         if ( ( k *= 2 ) < 1 ) return 0.5 * ( k * k * ( ( s + 1 ) * k - s ) );
+	//         return 0.5 * ( ( k -= 2 ) * k * ( ( s + 1 ) * k + s ) + 2 );
+
+	//     }
+
+	// },
+
+	// Bounce: {
+
+	//     In: function ( k ) {
+
+	//         return 1 - TWEEN.Easing.Bounce.Out( 1 - k );
+
+	//     },
+
+	//     Out: function ( k ) {
+
+	//         if ( k < ( 1 / 2.75 ) ) {
+
+	//             return 7.5625 * k * k;
+
+	//         } else if ( k < ( 2 / 2.75 ) ) {
+
+	//             return 7.5625 * ( k -= ( 1.5 / 2.75 ) ) * k + 0.75;
+
+	//         } else if ( k < ( 2.5 / 2.75 ) ) {
+
+	//             return 7.5625 * ( k -= ( 2.25 / 2.75 ) ) * k + 0.9375;
+
+	//         } else {
+
+	//             return 7.5625 * ( k -= ( 2.625 / 2.75 ) ) * k + 0.984375;
+
+	//         }
+
+	//     },
+
+	//     InOut: function ( k ) {
+
+	//         if ( k < 0.5 ) return TWEEN.Easing.Bounce.In( k * 2 ) * 0.5;
+	//         return TWEEN.Easing.Bounce.Out( k * 2 - 1 ) * 0.5 + 0.5;
+
+	//     }
+
+	// }
+
+	// };
+
+	// TWEEN.Interpolation = {
+
+	// Linear: function ( v, k ) {
+
+	//     var m = v.length - 1, f = m * k, i = Math.floor( f ), fn = TWEEN.Interpolation.Utils.Linear;
+
+	//     if ( k < 0 ) return fn( v[ 0 ], v[ 1 ], f );
+	//     if ( k > 1 ) return fn( v[ m ], v[ m - 1 ], m - f );
+
+	//     return fn( v[ i ], v[ i + 1 > m ? m : i + 1 ], f - i );
+
+	// },
+
+	// Bezier: function ( v, k ) {
+
+	//     var b = 0, n = v.length - 1, pw = Math.pow, bn = TWEEN.Interpolation.Utils.Bernstein, i;
+
+	//     for ( i = 0; i <= n; i++ ) {
+	//         b += pw( 1 - k, n - i ) * pw( k, i ) * v[ i ] * bn( n, i );
+	//     }
+
+	//     return b;
+
+	// },
+
+	// CatmullRom: function ( v, k ) {
+
+	//     var m = v.length - 1, f = m * k, i = Math.floor( f ), fn = TWEEN.Interpolation.Utils.CatmullRom;
+
+	//     if ( v[ 0 ] === v[ m ] ) {
+
+	//         if ( k < 0 ) i = Math.floor( f = m * ( 1 + k ) );
+
+	//         return fn( v[ ( i - 1 + m ) % m ], v[ i ], v[ ( i + 1 ) % m ], v[ ( i + 2 ) % m ], f - i );
+
+	//     } else {
+
+	//         if ( k < 0 ) return v[ 0 ] - ( fn( v[ 0 ], v[ 0 ], v[ 1 ], v[ 1 ], -f ) - v[ 0 ] );
+	//         if ( k > 1 ) return v[ m ] - ( fn( v[ m ], v[ m ], v[ m - 1 ], v[ m - 1 ], f - m ) - v[ m ] );
+
+	//         return fn( v[ i ? i - 1 : 0 ], v[ i ], v[ m < i + 1 ? m : i + 1 ], v[ m < i + 2 ? m : i + 2 ], f - i );
+
+	//     }
+
+	// },
+
+	// Utils: {
+
+	//     Linear: function ( p0, p1, t ) {
+
+	//         return ( p1 - p0 ) * t + p0;
+
+	//     },
+
+	//     Bernstein: function ( n , i ) {
+
+	//         var fc = TWEEN.Interpolation.Utils.Factorial;
+	//         return fc( n ) / fc( i ) / fc( n - i );
+
+	//     },
+
+	//     Factorial: ( function () {
+
+	//         var a = [ 1 ];
+
+	//         return function ( n ) {
+
+	//             var s = 1, i;
+	//             if ( a[ n ] ) return a[ n ];
+	//             for ( i = n; i > 1; i-- ) s *= i;
+	//             return a[ n ] = s;
+
+	//         };
+
+	//     } )(),
+
+	//     CatmullRom: function ( p0, p1, p2, p3, t ) {
+
+	//         var v0 = ( p2 - p0 ) * 0.5, v1 = ( p3 - p1 ) * 0.5, t2 = t * t, t3 = t * t2;
+	//         return ( 2 * p1 - 2 * p2 + v0 + v1 ) * t3 + ( - 3 * p1 + 3 * p2 - 2 * v0 - v1 ) * t2 + v0 * t + p1;
+
+	//     }
+
+	// }
+
+	// };
+	/**
+	 * THREE.StereoEffect
+	 * @author alteredq / http://alteredqualia.com/
+	 * @authod mrdoob / http://mrdoob.com/
+	 * @authod arodic / http://aleksandarrodic.com/
+	 */
+	THREE.StereoEffect = function ( renderer ) {
+
+	    // API
+
+	    this.separation = 2000; // altered for extra 3d effect in Solar System visualisation
+
+	    // internals
+
+	    var _width, _height;
+
+	    var _position = new THREE.Vector3();
+	    var _quaternion = new THREE.Quaternion();
+	    var _scale = new THREE.Vector3();
+
+	    var _cameraL = new THREE.PerspectiveCamera();
+	    var _cameraR = new THREE.PerspectiveCamera();
+
+	    // initialization
+
+	    renderer.autoClear = false;
+
+	    this.setSizeSingleView = function ( width, height ) {
+
+	        _width = width;
+	        _height = height;
+
+	        //renderer.setSize( width, height );
+
+	    };
+
+	    this.render = function ( scene, camera ) {
+
+	        scene.updateMatrixWorld();
+
+	        if ( camera.parent === undefined ) camera.updateMatrixWorld();
+
+	        camera.matrixWorld.decompose( _position, _quaternion, _scale );
+
+	        // left
+
+	        _cameraL.fov = camera.fov;
+	        //_cameraL.aspect = 0.5 * camera.aspect;
+	    // keep aspect for proper ratio
+	        _cameraL.aspect = camera.aspect;
+	        _cameraL.near = camera.near;
+	        _cameraL.far = camera.far;
+	        _cameraL.updateProjectionMatrix();
+
+	        _cameraL.position.copy( _position );
+	        _cameraL.quaternion.copy( _quaternion );
+	        _cameraL.translateX( - this.separation );
+	        _cameraL.updateMatrixWorld();
+
+	        // right
+
+	        _cameraR.near = camera.near;
+	        _cameraR.far = camera.far;
+	        _cameraR.projectionMatrix = _cameraL.projectionMatrix;
+
+	        _cameraR.position.copy( _position );
+	        _cameraR.quaternion.copy( _quaternion );
+	        _cameraR.translateX( this.separation );
+	        _cameraR.updateMatrixWorld();
+
+	        //
+
+	        renderer.setViewport( 0, 0, _width * 2, _height );
+	        renderer.clear();
+
+	        renderer.setViewport( 0, 0, _width, _height );
+	        renderer.render( scene, _cameraL );
+
+	        renderer.setViewport( _width, 0, _width, _height );
+	        renderer.render( scene, _cameraR );
+
+	    };
+
+	};
+
 	var THREEx = THREEx || {}
 
 	// shim
@@ -37013,6 +37787,7 @@ ready = function() {
 		}, 500)
 
 		// get the media sources
+		// MediaDevices.enumerateDevices().then(function(sourceInfos) {
 		MediaDevices.enumerateDevices(function(sourceInfos) {
 			// define getUserMedia() constraints
 			var constraints = {
@@ -37098,7 +37873,7 @@ ready = function() {
 		domElement.src = 'videos/markerVideo.mp4'
 
 		domElement.style.zIndex = -1;
-					domElement.style.position = 'absolute'
+		domElement.style.position = 'absolute'
 
 		domElement.style.top = '0px'
 		domElement.style.left = '0px'
@@ -37123,7 +37898,7 @@ ready = function() {
 
 		// create debug element
 		var debugElement	= document.createElement('div')
-		debugElement.appendChild(canvasElement)
+		// debugElement.appendChild(canvasElement)
 		debugElement.style.position = 'absolute'
 		debugElement.style.top = '0px'
 		debugElement.style.left = '0px'
@@ -37424,7 +38199,376 @@ ready = function() {
 		location.hash = '#video'
 		location.reload()
 	})
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	// josejuanisaac
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	/*
+	    My helper functions
+	*/
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	/*
+	    @name: divtree
+	    @author: josejuanisaac
+	    @description: setup video/image/webcam for 3d
+	*/
+	//////////////////////////////////////////////////////////////////////////////////
+	function x(f, fn, _this){ //if it doesnt exist define it
+	    var propertyOf;
+	    if(_this){
+	        propertyOf = _this;
+	    }else{
+	        propertyOf = window;
+	    }
+	    if(typeof propertyOf[f] === 'undefined'){
+	        propertyOf[f] = fn;
+	    }else{
+	        console.log(f + " is already defined on "+propertyOf);
+	    }
+		}
+		var propertyOf = window;
+		x("l",//log
+		    function(s){console.log(s)},
+		    propertyOf
+		);
+		x("d",//document
+		    function(){return document;},
+		    propertyOf
+		);
+		x("p",//populate
+		    function(el,ops){
+		        for(var prop in ops){
+		            el.setAttribute(prop,ops[prop]);
+		        }
+		        return el;
+		    },
+		    propertyOf
+		);
+		x("c",//createElement
+		    function(tag,options){
+		        var el = d().createElement(tag);
+		        el = p(el,options);
+		        return el;
+		    },
+		    propertyOf
+		);
+		x("a",//append
+		    function(el,el2){el.appendChild(el2);},
+		    propertyOf
+		);
+		//////////////////////////////////////////////////////////////////////////////////
+		// higher coupling...
+		//////////////////////////////////////////////////////////////////////////////////
+		function aa(el){a(container,el);} // append to container/root
+		function ll(){l(container);}      // log container
 
+		var infoFDistance = 14;
+		var videoPlaying = true;
+		var container = c("div",{id:"container"});
+
+		var video_options = {
+		    id:"video",
+		    style:"visibility: hidden;",
+		    autoplay:"",
+		    width:"800",
+		    height:"600"
+		};
+		var video = c("video",video_options);
+
+		var leftcam_options = {
+		    id:"leftcam",
+		    width:"800",
+		    height:"800"
+		};
+		var leftcam = c("canvas",leftcam_options);
+		var leftCamCanvas = leftcam;
+		var leftCamContext = leftCamCanvas.getContext("2d");
+
+		var rightcam_options = {
+		    id:"rightcam",
+		    width:"800",
+		    height:"800"
+		};
+		var rightcam = c("canvas",rightcam_options);
+		var rightCamCanvas = rightcam;
+		var rightCamContext = rightCamCanvas.getContext("2d");
+
+
+		var divwebgl = c("div",{id:"webgl"});
+
+		var toppanel = c("div",{id:"toppanel"});
+
+		var bottompanel = c("div",{id:"bottompanel"});
+
+		var toastleft_options = {
+		   id:"toastleft",
+		   style:"visibility: visible; left: 80px; top: 80px; width: 200px; height: 200px;"
+		};
+		var toastleft = c("div",toastleft_options);
+
+		var toastright = c("div",{id:"toastright"});
+
+		var infoleft = c("div",{id:"infoleft"});
+
+		var inforight = c("div",{id:"inforight"});
+
+		var centerline_options = {
+		    id:"centerline",
+		    style:"position: absolute; width: 3px; background-color: #222222;"
+		};
+		var centerline = c("div",centerline_options);
+
+		var lefteyetopcorner_options = {
+		    id:"lefteyetopcorner",
+		    style:"position: absolute; top: -100px; left: -100px; width: 100px; height: 100px; background-color: transparent; overflow: hidden;"
+		};
+		var lefteyetopcorner = c("div",lefteyetopcorner_options);
+
+		a(lefteyetopcorner,c("div",{style:"position: absolute; left: 0px; top: -100px; width: 100px; height: 100px; background-color: transparent; border-right: 100px solid #222222; border-top: 100px solid #222222; border-radius: 0 200px 0 0; "}));
+
+		var righteyetopcorner_options = {
+		    id:"righteyetopcorner",
+		    style:"position: absolute; top: -100px; left: -100px; width: 100px; height: 100px; background-color: transparent; overflow: hidden;"
+		};
+		var righteyetopcorner = c("div",righteyetopcorner_options);
+
+		a(righteyetopcorner,c("div",{style:"position: absolute; left: -100px; top: -100px; width: 100px; height: 100px; background-color: transparent; border-left: 100px solid #222222; border-top: 100px solid #222222; border-radius: 200px 0 0 0; "}));
+
+		var lefteyebottomcorner_options = {
+		    id:"lefteyebottomcorner",
+		    style:"position: absolute; top: -100px; left: -100px; width: 100px; height: 100px; background-color: transparent; overflow: hidden;"
+		};
+		var lefteyebottomcorner = c("div",lefteyebottomcorner_options);
+
+		a(lefteyebottomcorner, c("div",{style:"position: absolute; left: 0px; top: 0px; width: 100px; height: 100px; background-color: transparent; border-right: 100px solid #222222; border-bottom: 100px solid #222222; border-radius: 0 0 200px 0; "}));
+
+
+		var righteyebottomcorner_options = {
+		    id:"righteyebottomcorner",
+		    style:"position: absolute; top: -100px; left: -100px; width: 100px; height: 100px; background-color: transparent; overflow: hidden;"
+		};
+		var righteyebottomcorner = c("div",righteyebottomcorner_options);
+
+		a(righteyebottomcorner,c("div",{style:"position: absolute; left: -100px; top: 0px; width: 100px; height: 100px; background-color: transparent; border-left: 100px solid #222222; border-bottom: 100px solid #222222; border-radius: 0 0 0 200px; "}));
+
+
+		// ll();
+	//////////////////////////////////////////////////////////////////////////////////
+	/*
+		Split the view
+	*/
+	//////////////////////////////////////////////////////////////////////////////////
+	// variable declarations
+		// var camera;
+		// var scene;
+		// var renderer;
+		// var raycaster;
+		// var effect;
+		// var controls;
+		// var container;
+		// var divwebgl;
+		// var leftcam;
+		// var rightcam;
+		// var toppanel;
+		// var bottompanel;
+		// var toastleft;
+		// var toastright;
+		// var infoleft;
+		// var inforight;
+		// var complexityzonelinkleft;
+		// var complexityzonelinkright;
+		// var centerline;
+		// var lefteyetopcorner;
+		// var righteyetopcorner;
+		// var lefteyebottomcorner;
+		// var righteyebottomcorner;
+		var screenWidth;
+		var screenHeight;
+		var screenHalfWidth;
+		var screenHalfHeight;
+		var verticalMargin;
+		// var video;
+		// var videoPlaying = false;
+		// var fullScreenRequested = false;
+	//
+
+	// /*init context*/
+
+	// var effect = new THREE.StereoEffect(renderer);
+	// if(effect)p(effect);
+
+	/*end-init context*/
+	/*render context*/
+
+	//effect.render(scene, camera);
+
+	/*end-render context*/
+
+	/*
+		resize fn
+			presumes the existence of
+				container x
+				screenWidth
+				screenHalfWidth
+				screenHalfHeight
+				verticalMargin
+				camera
+				renderer
+				effect
+				cameraImage
+				leftcam
+				rightcam
+				divwebgl
+				toppanel
+				bottompanel
+				toastleft
+				isMobile
+				toastright
+				infoleft
+				inforight
+				complexityzonelinkleft
+				complexityzonelinkright
+				centerline
+				lefteyetopcorner
+				righteyetopcorner
+				lefteyebottomcorner
+				righteyebottomcorner
+
+	*/
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ? true : false;
+	// tim samshuijzen
+	function resize() {
+      screenWidth = window.innerWidth;//container.offsetWidth; //
+      screenHeight = window.innerHeight;container.offsetHeight; //
+      screenHalfWidth = ((screenWidth / 2) | 0);
+      screenHalfHeight = ((screenHeight / 2) | 0);
+      var horizontalMargin = 0;
+      // adjust margin so that we have a near 4:3 ratio.
+      verticalMargin = (((screenHeight - (screenHalfWidth / (4/3))) / 2) * 0.5) | 0;
+
+      camera.aspect = screenHalfWidth / (screenHeight - (2 * verticalMargin));
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(screenWidth, (screenHeight - (2 * verticalMargin))); // the total space for the viewport
+
+      effect.setSizeSingleView(screenHalfWidth, (screenHeight - (2 * verticalMargin)));
+
+      var cameraImageWidth = 800; //(screenHalfWidth - (2 * horizontalMargin));
+      var cameraImageHeight = 600; //(screenHeight - (2 * verticalMargin));
+
+      cameraImage.width = cameraImageWidth;
+      cameraImage.height = cameraImageHeight;
+      cameraImage.setAttribute("width", '' + cameraImageWidth);
+      cameraImage.setAttribute("height", '' + cameraImageHeight);
+      cameraImage.style.width = cameraImageWidth + 'px';
+      cameraImage.style.height = cameraImageHeight + 'px';
+
+      leftcam.style.left = horizontalMargin + 'px';
+      leftcam.style.top = verticalMargin + 'px';
+      leftcam.width = (screenHalfWidth - (2 * horizontalMargin));
+      leftcam.height = (screenHeight - (2 * verticalMargin));
+      leftcam.style.width = (screenHalfWidth - (2 * horizontalMargin)) + 'px';
+      leftcam.style.height = (screenHeight - (2 * verticalMargin)) + 'px';
+
+      rightcam.style.left = (screenHalfWidth + horizontalMargin) + 'px';
+      rightcam.style.top = verticalMargin + 'px';
+      rightcam.width = (screenHalfWidth - (2 * horizontalMargin));
+      rightcam.height = (screenHeight - (2 * verticalMargin));
+      rightcam.style.width = (screenHalfWidth - (2 * horizontalMargin)) + 'px';
+      rightcam.style.height = (screenHeight - (2 * verticalMargin)) + 'px';
+
+      divwebgl.style.left = 0 + 'px';
+      divwebgl.style.top = verticalMargin + 'px';
+      divwebgl.style.width = screenWidth + 'px';
+      divwebgl.style.height = (screenHeight - (2 * verticalMargin)) + 'px';
+
+      toppanel.style.width = screenWidth + 'px';
+      toppanel.style.height = verticalMargin + 'px';
+
+      bottompanel.style.top = (screenHeight - verticalMargin) + 'px';
+      bottompanel.style.width = screenWidth + 'px';
+      bottompanel.style.height = verticalMargin + 'px';
+
+      var lToastViewLeft = ((screenHalfWidth * 1) / 10);
+      var lToastViewTop = (((screenHeight - (2 * verticalMargin)) * 1) / 10);
+      var lToastViewWidth = ((screenHalfWidth * 4) / 10);
+      var lToastViewHeight = (((screenHeight - (2 * verticalMargin)) * 3) / 10);
+      toastleft.style.left = ((lToastViewLeft + 14) | 0) + 'px'; // 14 for making toast appear near.
+      toastleft.style.top = (verticalMargin + (lToastViewTop | 0)) + 'px';
+      toastleft.style.width = (lToastViewWidth | 0) + 'px';
+      toastleft.style.height = (lToastViewHeight | 0) + 'px';
+      if (isMobile) {
+        toastleft.style.fontSize = '11px';
+      }
+
+      toastright.style.left = (screenHalfWidth + ((lToastViewLeft - 14) | 0)) + 'px'; // -14 for making toast appear near.
+      toastright.style.top = (verticalMargin + (lToastViewTop | 0)) + 'px';
+      toastright.style.width = (lToastViewWidth | 0) + 'px';
+      toastright.style.height = (lToastViewHeight | 0) + 'px';
+      if (isMobile) {
+        toastright.style.fontSize = '11px';
+      }
+
+      infoleft.style.left = ((((screenHalfWidth / 2) | 0) - 50) + infoFDistance) + 'px';
+      infoleft.style.top = ((verticalMargin + (((screenHeight - (2 * verticalMargin)) / 2) | 0)) - 10) + 'px';
+      inforight.style.left = (screenHalfWidth + ((((screenHalfWidth / 2) | 0) - 50) - infoFDistance)) + 'px';
+      inforight.style.top = ((verticalMargin + (((screenHeight - (2 * verticalMargin)) / 2) | 0)) - 10) + 'px';
+
+      // complexityzonelinkleft.style.left = ((((screenHalfWidth / 2) | 0) - 100) + 14) + 'px';
+      // complexityzonelinkleft.style.top = ((screenHeight /*- verticalMargin*/) - 30) + 'px';
+
+      // complexityzonelinkright.style.left = (screenHalfWidth + ((((screenHalfWidth / 2) | 0) - 100) - 14)) + 'px';
+      // complexityzonelinkright.style.top = ((screenHeight /*- verticalMargin*/) - 30) + 'px';
+
+
+      centerline.style.left = (screenHalfWidth - 1) + 'px';
+      centerline.style.top = verticalMargin + 'px';
+      centerline.style.height = (screenHeight - (2 * verticalMargin)) + 'px';
+
+      lefteyetopcorner.style.left = (screenHalfWidth - 100) + 'px';
+      lefteyetopcorner.style.top = verticalMargin + 'px';
+
+      righteyetopcorner.style.left = screenHalfWidth + 'px';
+      righteyetopcorner.style.top = verticalMargin + 'px';
+
+      lefteyebottomcorner.style.left = (screenHalfWidth - 100) + 'px';
+      lefteyebottomcorner.style.top = ((screenHeight - verticalMargin) - 100) + 'px';
+
+      righteyebottomcorner.style.left = screenHalfWidth + 'px';
+      righteyebottomcorner.style.top = ((screenHeight - verticalMargin) - 100) + 'px';
+    }
+    function split(){
+    	leftCamContext.drawImage(cameraImage, 0, 0, cameraImage.width, cameraImage.height, 0, 0, leftcam.width, leftcam.height);
+        rightCamContext.drawImage(cameraImage, 0, 0, cameraImage.width, cameraImage.height, 0, 0, leftcam.width, leftcam.height);
+    }
+    function camCapture() {
+      if (videoPlaying) {
+      	// l("videoPlaying")
+        cameraImageContext.drawImage(videoGrabbing.domElement, 0, 0, videoGrabbing.domElement.videoWidth, videoGrabbing.domElement.videoHeight, 0, 0, cameraImage.width, cameraImage.height);
+        leftCamContext.drawImage(cameraImage, 0, 0, cameraImage.width, cameraImage.height, 0, 0, leftcam.width, leftcam.height);
+        rightCamContext.drawImage(cameraImage, 0, 0, cameraImage.width, cameraImage.height, 0, 0, leftcam.width, leftcam.height);
+      }
+    }
+    function render(){
+    	// requestAnimationFrame(render);
+    	// console.log("rendering");
+      	camera.updateProjectionMatrix();
+      	effect.render(scene, camera);
+      	renderer.render(scene,camera);
+      	// debugger;
+    	camCapture();
+    	// TWEEN.update();
+    }
+	//////////////////////////////////////////////////////////////////////////////////
+	/*
+		End splitting the image
+	*/
+	//////////////////////////////////////////////////////////////////////////////////
+	// josejuanisaac
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////
 	//    Init
 	//////////////////////////////////////////////////////////////////////////////////
@@ -37435,7 +38579,22 @@ ready = function() {
 		alpha: true,
 	});
 	renderer.setSize(window.innerWidth, window.innerHeight);
-	document.body.appendChild(renderer.domElement);
+	/* josejuanisaac */
+
+
+
+		var cameraImage_options = {
+			width:"640",
+			height:"480"
+		};
+		var cameraImage = c("canvas",cameraImage_options);
+		cameraImage.width = 640;
+		cameraImage.height = 480;
+      	var cameraImageContext = cameraImage.getContext("2d");
+
+		var effect = new THREE.StereoEffect(renderer);
+	/* josejuanisaac */
+	// document.body.appendChild(renderer.domElement);
 
 	// array of functions for the rendering loop
 	var onRenderFcts = [];
@@ -37443,16 +38602,11 @@ ready = function() {
 	// init scene and camera
 	var scene = new THREE.Scene()
 	var camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.01, 1000);
-	camera.position.z = 2;
+	/* josejuanisaac */
+		scene.add(camera);
+	/* josejuanisaac */
 
-	// Synchronous ajax request
-	// function getRemote() {
-	//     return $.ajax({
-	//         type: "GET",
-	//         url: remote_url,
-	//         async: false
-	//     }).responseText;
-	// }
+	camera.position.z = 2;
 
 	/**
 	 * @param  repeatCard {string}   Do not repeat this card
@@ -37502,6 +38656,12 @@ ready = function() {
 	}, {
 		id: 860,
 		imageUrl: randomCards[1]
+	}, {
+		id: 411,
+		imageUrl: randomCards[0]
+	}, {
+		id: 667,
+		imageUrl: randomCards[1]
 	}];
 
 	//////////////////////////////////////////////////////////////////////////////////
@@ -37537,37 +38697,6 @@ ready = function() {
 		})();
 	}
 
-	// On marker detected
-	window.addEventListener('markersDetected', function(e) {
-		// Get IDs -- HARDCODED
-		markerIds = e.detail;
-
-		// markerId must be int
-		markerIds.forEach(function(markerId, markerIndex) {
-			// Get Images from the map
-			var cardFromId = arIDToImagePath.find(function(card, cardIndex) {
-				return card.id === markerId;
-			});
-
-			// If no object found, should throw error
-			if (Object.keys(cardFromId).length === 0) {
-				throw new Error('Could not find card from id ' + markerId)
-			};
-
-			// Load texture from found card
-			var material = new THREE.SpriteMaterial({
-				map: THREE.ImageUtils.loadTexture(cardFromId.imageUrl),
-			});
-			var geometry = new THREE.BoxGeometry(1, 1, 1)
-			var object3d = new THREE.Sprite(material);
-			object3d.scale.set(1, 1, 1);
-
-			markerObject3DCollection[markerIndex].add(object3d);
-		});
-
-		window.removeEventListener('markersDetected');
-	});
-
 	// window.addEventListener('nextGameState', function() {});
 
 	//////////////////////////////////////////////////////////////////////////////////
@@ -37575,35 +38704,22 @@ ready = function() {
 	//////////////////////////////////////////////////////////////////////////////////
 
 	// handle window resize
-	window.addEventListener('resize', function () {
-		renderer.setSize(window.innerWidth, window.innerHeight)
-		camera.aspect = window.innerWidth / window.innerHeight
-		camera.updateProjectionMatrix()
-	}, false)
+	// we need to work a little with this, right now it enlarges the pictures
+	// window.addEventListener('resize', function () {
+	// 	renderer.setSize(window.innerWidth, window.innerHeight)
+	// 	camera.aspect = window.innerWidth / window.innerHeight
+	// 	camera.updateProjectionMatrix()
+	// }, false)
+	window.addEventListener('resize', resize, false);
+    resize();
 
 
-	// render the scene
-	onRenderFcts.push(function () {
-		renderStats.begin();
-		if (webglRenderEnabled === true) {
-			renderer.render(scene, camera);
-		}
-		renderStats.end();
-	})
 
 	// run the rendering loop
 	var previousTime = performance.now()
-	requestAnimationFrame(function animate(now) {
+	/* josejuanisaac */
 
-		requestAnimationFrame(animate);
-
-		onRenderFcts.forEach(function (onRenderFct) {
-			onRenderFct(now, now - previousTime)
-		})
-
-		previousTime = now
-	});
-
+	/* josejuanisaac */
 	//////////////////////////////////////////////////////////////////////////////////
 	//    Do the Augmented Reality part
 	//////////////////////////////////////////////////////////////////////////////////
@@ -37628,8 +38744,30 @@ ready = function() {
 	} else console.assert(false)
 
 	// attach the videoGrabbing.domElement to the body
-	document.body.appendChild(videoGrabbing.domElement);
+	/* josejuanisaac */
 
+	// document.body.appendChild(videoGrabbing.domElement);
+	// videoGrabbing.domElement.style.display = "none";
+	videoGrabbing.domElement.style.zIndex = -1;
+	aa(videoGrabbing.domElement);
+	// aa(video);
+	aa(leftCamCanvas);
+	aa(rightCamCanvas);
+	aa(divwebgl);
+	aa(toppanel);
+	aa(bottompanel);
+	aa(toastleft);
+	aa(toastright);
+	aa(infoleft);
+	aa(inforight);
+	// aa(centerline);
+	// aa(lefteyetopcorner);
+	// aa(righteyetopcorner);
+	// aa(lefteyebottomcorner);
+	// aa(righteyebottomcorner);
+	a(document.body,container);
+
+	/* josejuanisaac */
 	//////////////////////////////////////////////////////////////////////////////////
 	//    Process video source to find markers
 	//////////////////////////////////////////////////////////////////////////////////
@@ -37637,21 +38775,67 @@ ready = function() {
 	// Set dom element in global scope
 	var domElement = videoGrabbing.domElement;
 	var markers;
+	// onRenderFcts.push(function(){
+	// 	renderStats.begin();
+	// 	render();
+	// 	renderStats.end();
+	// });
+	// render the scene
+	// On marker detected
+	window.addEventListener('markersDetected', function(e) {
+		// Get IDs -- HARDCODED
+		markerIds = e.detail;
+		l(markerIds);
+		// debugger;
+		// markerId must be int
+		markerIds.forEach(function(markerId, markerIndex) {
+			// Get Images from the map
+			debugger;
+			var cardFromId = arIDToImagePath.find(function(card, cardIndex) {
+				return card.id === markerId;
+			});
 
+			// If no object found, should throw error
+			if (Object.keys(cardFromId).length === 0) {
+				throw new Error('Could not find card from id ' + markerId)
+			};
+
+			// Load texture from found card
+			var material = new THREE.SpriteMaterial({
+				map: THREE.ImageUtils.loadTexture(cardFromId.imageUrl),
+			});
+			var geometry = new THREE.BoxGeometry(1, 1, 1)
+			var object3d = new THREE.Sprite(material);
+			object3d.scale.set(1, 1, 1);
+
+			markerObject3DCollection[markerIndex].add(object3d);
+		});
+
+		window.removeEventListener('markersDetected');
+	});
+	onRenderFcts.push(function () {
+		renderStats.begin();
+		if (webglRenderEnabled === true) {
+			// debugger;
+			split();
+		}
+		renderStats.end();
+	})
 	onRenderFcts.push(function () {
 		// Find the markers on the video. Returns collection of markers
 		detectMarkersStats.begin();
 		markers = jsArucoMarker.detectMarkers(domElement);
 		detectMarkersStats.end();
-
+		// debugger;
 		// Send event that we need to set the images of the markerObject3D collection
-		if (markers.length === 2 && markers[0].id !== markers[1].id) {
+		if (markers.length>0){//markers.length === 2 && markers[0].id !== markers[1].id) {
+			// debugger;
 			var markerIds = markers.map(function(marker) { return marker.id });
 			var markersDetectedEvent = new CustomEvent('markersDetected', { 'detail': markerIds });
+			// debugger;
 			window.dispatchEvent(markersDetectedEvent);
 		}
 	});
-
 	// @TODO update onRenderFcts next
 	markerObject3DCollection.forEach(function(markerObject3D, markerIndex) {
 		// set the markerObject3D as visible
@@ -37668,13 +38852,35 @@ ready = function() {
 
 			// see if this.markerId has been found
 			markers.forEach(function (marker) {
+				// debugger;
+				l("marker.id="+marker.id);
+				l("markerIndex="+markerIndex);
+				l("markerIds[markerIndex]="+markerIds[markerIndex]);
+				l("markerIds="+markerIds);
+
+				l(marker.id === markerIds[markerIndex]);
 				if (marker.id === markerIds[markerIndex]) {
+					l("FUCKING");
 					jsArucoMarker.markerToObject3D(marker, markerObject3D)
 					markerObject3D.visible = true
+					// debugger;
 					return;
 				}
 			});
 		});
+	});
+	onRenderFcts.push(render);
+	requestAnimationFrame(function animate(now) {
+		// debugger;
+		requestAnimationFrame(animate);
+		// l("================================================================");
+		onRenderFcts.forEach(function (onRenderFct) {
+
+			// l(onRenderFct);
+			onRenderFct(now, now - previousTime)
+		})
+		// l("================================================================");
+		previousTime = now
 	});
 };
 
