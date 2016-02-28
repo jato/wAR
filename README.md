@@ -52,3 +52,16 @@ cd utils_hrm
 # Create a board with 5 rows, 2 columns, and output to image and yml config
 ./aruco_create_board 5:2 board.png board.yml
 ```
+
+## Installation
+
+To start the rails app on your local machine, go to the `wAR` folder.
+
+```bash
+# Install gems
+bundle install
+# Migrate tables
+rake db:migrate RAILS_ENV=development
+# Start server, default port:3000
+rails server
+```
