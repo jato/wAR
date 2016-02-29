@@ -537,6 +537,41 @@
 		}
 	}
 
+
+	#jose_git img {
+		width: 160px;
+  	height: 160px;
+  	color: #131f43;
+  	font-size: 3.4em;
+  	text-align: center;
+  	line-height: 120px;
+  	background-color: #fff;
+  	transition: all 0.5s ease;
+	}
+
+	#jose_git img:hover {
+		transform: rotate(360deg);
+  	border-radius: 100px;
+	}
+
+	.animate-image img {
+		width: 160px;
+  	height: 160px;
+  	color: #131f43;
+  	font-size: 3.4em;
+  	text-align: center;
+  	line-height: 120px;
+  	background-color: #fff;
+  	transition: all 0.5s ease;
+	}
+
+	.animate-image img:hover {
+		transform: rotate(360deg);
+  	border-radius: 100px;
+	}
+
+
+
 /* List */
 
 	ol {
